@@ -1,2 +1,10 @@
+
+#make sure we ignore the files that need not be activated (liek the git configurations)
 .nixos-config/
 
+# Ignore build outputs from performing a nix-build or `nix build` command
+result
+result-*
+
+# Ignore automatically generated direnv output
+.direnv

@@ -38,5 +38,9 @@ reload() {
     echo "Reloaded ~/.bashrc"
 }
 
+# Bash completion for dotgit
+if type _git &>/dev/null; then
+  complete -o default -o nospace -F _git nixgit
+fi
 
 eval 'keychain --eval --agents ssh id_ed25519'
