@@ -16,7 +16,8 @@ alias l='ls -lh'
 alias la='ls -lAh'
 alias ll='ls -lah'
 alias nixgit='git --git-dir=$HOME/.nixos-config/ --work-tree=$HOME'
-
+alias man='tldr'
+alias cat='bat'
 
 # NixOS: Quickly switch and apply configuration
 nrs() {
@@ -29,8 +30,8 @@ bash_lookup() {
 }
 
 # NixOS: Edit configuration.nix
-edit-nixos-config() {
-    ${EDITOR:-nano} /etc/nixos/configuration.nix
+nec() {
+    sudo ${EDITOR:-nano} /etc/nixos/configuration.nix
 }
 
 # NixOS: Search for packages
