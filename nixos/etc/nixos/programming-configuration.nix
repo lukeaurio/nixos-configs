@@ -15,6 +15,10 @@
     git-conventional-commits
     graphviz
     keychain
+    tealdeer
+    lazygit
+    bat
+    tree
     (vscode-with-extensions.override {
       vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
@@ -28,11 +32,12 @@
         waderyan.gitblame
       ];
     })
+
   ];
 
 
   services.tailscale.enable = true;
   programs.ssh.startAgent = true;
-  
+
 
 }

@@ -11,6 +11,7 @@ alias grep='grep --color=auto'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias ls='tree'
 alias l='ls -lh'
 alias la='ls -lAh'
 alias ll='ls -lah'
@@ -18,8 +19,13 @@ alias nixgit='git --git-dir=$HOME/.nixos-config/ --work-tree=$HOME'
 
 
 # NixOS: Quickly switch and apply configuration
-nixos-rebuild-switch() {
+nrs() {
     sudo nixos-rebuild switch "$@"
+}
+
+# Seach for recently run bash commands (If you lazy wink)
+bash_lookup() {
+    history | grep --color=auto "$@"
 }
 
 # NixOS: Edit configuration.nix

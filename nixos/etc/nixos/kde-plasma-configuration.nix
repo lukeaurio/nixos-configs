@@ -31,5 +31,6 @@
     wayland-utils # Wayland utilities
     wl-clipboard # Command-line copy/paste utilities for Wayland
     iio-sensor-proxy #allow for screen roation
+    maliit-keyboard # On-screen keyboard for touch devices
   ];
 }

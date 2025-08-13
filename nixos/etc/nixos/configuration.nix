@@ -8,14 +8,18 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./framework-12-configuration.nix
+      /etc/nixos/hardware-configuration.nix
       ./kde-plasma-configuration.nix
       ./programming-configuration.nix
+      ./desktop-packages.nix
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # Enable Flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes "];
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -114,34 +118,10 @@
     nano
     firefox
     htop
+    btop
     git
-    filezilla
     fastfetch
-    maliit-keyboard
-    #Audio Packages
-    yoshimi
-    vlc
-    qpwgraph
-    muse
-    audacity
-    handbrake
-    #Internet
-    slack
-    zoom-us
-    discord
-    filezilla
-    #3dprinting
-    orca-slicer
-    blender
-    openscad
-    #keebs
-    via
-    vial
-    #office
-    #libreoffice
-    #utils
-    rpi-imager
-    ventoy
+
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
