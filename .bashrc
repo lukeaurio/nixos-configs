@@ -25,7 +25,7 @@ nrs() {
 }
 
 # Seach for recently run bash commands (If you lazy wink)
-bash_lookup() {
+bl() {
     history | grep --color=auto "$@"
 }
 
@@ -37,6 +37,10 @@ nec() {
 # NixOS: Search for packages
 nix-search() {
     nix search nixpkgs "$@"
+}
+
+brc(){
+    ${EDITOR:-nano} $HOME/.bashrc
 }
 
 # Reload .bashrc
