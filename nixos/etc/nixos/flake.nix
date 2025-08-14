@@ -16,7 +16,10 @@
     nixosConfigurations.framework-nixos = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       modules = [
-        { nix.settings.experimental-features = ["nix-command" "flakes"]; }
+        { 
+           nix.settings.experimental-features = ["nix-command" "flakes"];
+           boot.initrd.kernelModules = [ "pinctrl_tigerlake" ]; 
+        }
         ./configuration.nix
         # inputs.home-manager.nixosModules.default
       ];
