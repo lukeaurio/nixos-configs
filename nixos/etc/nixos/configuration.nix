@@ -8,7 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      /etc/nixos/hardware-configuration.nix
       ./kde-plasma-configuration.nix
       ./programming-configuration.nix
       ./desktop-packages.nix
@@ -17,9 +16,6 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  # Enable Flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
 
   # Use latest kernel.
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -129,6 +125,7 @@
 
   nixpkgs.config.permittedInsecurePackages = [
     "ventoy-1.1.05"
+    "libsoup-2.74.3"
   ];
 
 

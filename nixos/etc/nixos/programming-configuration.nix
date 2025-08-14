@@ -9,7 +9,6 @@
     python313
     poetry
     uv
-    uv-sort
     opentofu
     qflipper
     git-conventional-commits
