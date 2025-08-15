@@ -8,9 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./kde-plasma-configuration.nix
-      ./programming-configuration.nix
-      ./desktop-packages.nix
     ];
 
   # Bootloader.
