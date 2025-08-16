@@ -13,8 +13,7 @@ environment.systemPackages = with pkgs; [
     makemkv
     libdvdcss
     ccextractor
-    flac
-    lame
+    asunder
     #Internet
     slack
     zoom-us
