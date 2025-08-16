@@ -1,6 +1,7 @@
 
 #make sure we ignore the files that need not be activated (liek the git configurations)
 .nixos-config/
+nixos/etc/nixos/hardware-configuration.nix
 
 # Ignore build outputs from performing a nix-build or `nix build` command
 result
