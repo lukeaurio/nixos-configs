@@ -10,6 +10,11 @@ environment.systemPackages = with pkgs; [
     muse
     audacity
     handbrake
+    makemkv
+    libdvdcss
+    ccextractor
+    flac
+    lame
     #Internet
     slack
     zoom-us

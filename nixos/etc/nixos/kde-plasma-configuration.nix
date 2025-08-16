@@ -21,6 +21,7 @@
     kdePackages.kwallet #Needed for Storign credentials to NetworkManager
     kdePackages.plasma-mobile
     kdePackages.qtvirtualkeyboard
+    kdePackages.audex #allow me to rip some cds!
     libsForQt5.plasma-settings #Needed to Configure Plasma    
     libsForQt5.plasma-mobile #Plasma MobileSetings
     kdiff3 # Compares and merges 2 or 3 files or directories
@@ -32,5 +33,10 @@
     wl-clipboard # Command-line copy/paste utilities for Wayland
     iio-sensor-proxy #allow for screen roation
     maliit-keyboard # On-screen keyboard for touch devices
+    firefox
   ];
+
+  # Install firefox.
+  programs.firefox.enable = true;
+
 }

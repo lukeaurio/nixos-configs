@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
@@ -25,6 +29,7 @@
         ./kde-plasma-configuration.nix
         ./desktop-packages.nix
         inputs.home-manager.nixosModules.default
+        inputs.stylix.nixosModules.stylix
       ];
     };
   };
