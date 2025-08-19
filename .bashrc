@@ -54,6 +54,6 @@ if type _git &>/dev/null; then
   complete -o default -o nospace -F _git nixgit
 fi
 
-eval 'keychain --eval --agents ssh id_ed25519'
+eval 'keychain --eval id_ed25519'
 
 [[ "$TERM_PROGRAM" == "codium" ]] && . "$(code --locate-shell-integration-path bash)"

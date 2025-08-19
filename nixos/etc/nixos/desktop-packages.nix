@@ -13,6 +13,8 @@ environment.systemPackages = with pkgs; [
     makemkv
     libdvdcss
     ccextractor
+    mkvtoolnix
+    subtitleedit
     asunder
     #Internet
     slack
