@@ -115,6 +115,7 @@
     btop
     git
     fastfetch
+    usbutils
   ];
 
   nixpkgs.config.permittedInsecurePackages = [

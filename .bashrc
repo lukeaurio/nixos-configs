@@ -55,5 +55,6 @@ if type _git &>/dev/null; then
 fi
 
 eval 'keychain --eval id_ed25519'
+ssh-add ~/.ssh/id_ed25519
 
 [[ "$TERM_PROGRAM" == "codium" ]] && . "$(code --locate-shell-integration-path bash)"
