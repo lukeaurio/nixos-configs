@@ -22,6 +22,7 @@ environment.systemPackages = with pkgs; [
     zoom-us
     discord
     filezilla
+    spotify
     #3dprinting
     orca-slicer
     blender
