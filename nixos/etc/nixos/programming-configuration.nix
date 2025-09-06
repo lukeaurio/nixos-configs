@@ -16,11 +16,11 @@
     keychain
     tealdeer
     lazygit
+    zoxide
     bat
     tree
     spotify-player
     (vscode-with-extensions.override {
-      vscode = vscodium;
       vscodeExtensions = with vscode-extensions; [
         bbenoist.nix
         ms-python.python

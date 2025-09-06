@@ -22,13 +22,21 @@
       modules = [
         { 
            nix.settings.experimental-features = ["nix-command" "flakes"];
-           boot.initrd.kernelModules = [ "pinctrl_tigerlake" ]; 
+           boot.initrd.kernelModules = [ "pinctrl_tigerlake" ];
+           boot.kernelModules = [ "sg" ];
         }
         ./configuration.nix
         ./programming-configuration.nix
         ./kde-plasma-configuration.nix
         ./desktop-packages.nix
         inputs.home-manager.nixosModules.default
+        inputs.home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+	  home-manager.backupFileExtension = "bak";
+          home-manager.users.willberto = import ./home-manager/home.nix;
+        }
         inputs.stylix.nixosModules.stylix
       ];
     };

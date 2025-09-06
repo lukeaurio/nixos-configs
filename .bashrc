@@ -16,6 +16,7 @@ alias l='ls -lh'
 alias la='ls -lAh'
 alias ll='ls -lah'
 alias nixgit='git --git-dir=$HOME/.nixos-config/ --work-tree=$HOME'
+alias lazynix='lazygit --git-dir=$HOME/.nixos-config/ --work-tree=$HOME'
 alias man='tldr'
 alias cat='bat'
 

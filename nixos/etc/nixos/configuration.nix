@@ -93,12 +93,16 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.willberto = {
     isNormalUser = true;
+    initialPassword = "ChangeMe!";
     description = "Willberto Dotbiz";
     extraGroups = [ "networkmanager" "wheel" ];
+    shell = pkgs.zsh;
     packages = with pkgs; [
     #  thunderbird
     ];
   };
+  programs.zsh.enable = true;
+
 
   #stylix.enable = true;
   
@@ -153,3 +157,4 @@
   system.stateVersion = "25.05"; # Did you read the comment?
 
 }
+

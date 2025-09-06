@@ -21,8 +21,8 @@
     kdePackages.kwallet #Needed for Storign credentials to NetworkManager
     kdePackages.plasma-mobile
     kdePackages.qtvirtualkeyboard
-    libsForQt5.plasma-settings #Needed to Configure Plasma    
-    libsForQt5.plasma-mobile #Plasma MobileSetings
+    #libsForQt5.plasma-settings #Needed to Configure Plasma    
+    #libsForQt5.plasma-mobile #Plasma MobileSetings
     kdiff3 # Compares and merges 2 or 3 files or directories
     kdePackages.isoimagewriter # Optional: Program to write hybrid ISO files onto USB disks
     kdePackages.partitionmanager # Optional Manage the disk devices, partitions and file systems on your computer
