@@ -115,4 +115,10 @@
     userEmail = "lukeaurio@proton.me";
   };
 
+  programs.oh-my-posh = {
+     enable = true;
+     enableZshIntegration = true;
+     useTheme = "tonybaloney";
+  };
+
 }

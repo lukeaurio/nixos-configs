@@ -55,6 +55,15 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  #Install Global Font Packages
+  fonts.packages = with pkgs; [
+         nerd-fonts._3270   
+         nerd-fonts.gohufont
+         nerd-fonts.hack
+         nerd-fonts.hasklug
+  ]; 
+  
+
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   #services.xserver.enable = true;
