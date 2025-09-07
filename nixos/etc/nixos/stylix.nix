@@ -1,13 +1,22 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
-
    stylix = {
       enable = true;
-      autoEnable = false;
+      autoEnable = true;
       image = pkgs.fetchurl {
-        url = "https://www.pixelstalk.net/wp-content/uploads/2016/05/Epic-Anime-Awesome-Wallpapers.jpg";
-        hash = "sha256-enQo3wqhgf0FEPHj2coOCvo7DuZv+x5rL/WIo4qPI50=";
+        url = "https://raw.githubusercontent.com/lukeaurio/nixos-configs/refs/heads/main/Pictures/Desktop_Backgrounds/ForestTemple.png";
+        hash = "sha256-+OiCAgVZQ1TFhmnRs47S3aXdGqED9mlmvZ36gWx+RcI=";
       };
       polarity = "dark";
+      
+      fonts = {
+        monospace = {
+           package = pkgs.nerd-fonts.gohufont;
+           name = "GohuFont uni14 Nerd Font";
+        };
+    	serif = config.stylix.fonts.monospace;
+    	sansSerif = config.stylix.fonts.monospace;
+    	emoji = config.stylix.fonts.monospace;
+      };
    };
 }

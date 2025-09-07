@@ -130,9 +130,14 @@
       background-opacity = "0.6";
       custom-shader = "$HOME/Submodules/ghostty-shaders/bettercrt.glsl";
       custom-shader-animation = "always";
-      cursor-style = "block_hollow";
+      cursor-style = "block";
       font-family = "GohuFont uni14 Nerd Font";
     };
+  };
+
+  programs.nixcord = {
+     enable  = true; 
+     vesktop.enable  = true;
   };
 
   stylix.enable = true;

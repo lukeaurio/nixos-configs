@@ -21,6 +21,7 @@ environment.systemPackages = with pkgs; [
     slack
     zoom-us
     discord
+    vencord
     filezilla
     spotify
     #3dprinting
