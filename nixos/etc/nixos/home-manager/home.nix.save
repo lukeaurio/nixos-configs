@@ -90,7 +90,6 @@
        ll = "ls -lah";
        nixgit = "git --git-dir=$HOME/.nixos-config/ --work-tree=$HOME";
        lazynix = "lazygit --git-dir=$HOME/.nixos-config/ --work-tree=$HOME";
-       ghostcuts = "ghostty +list-keybinds --default";
        man = "tldr";
        cat = "bat";
      };
@@ -130,10 +129,15 @@
       background-opacity = "0.6";
       custom-shader = "$HOME/Submodules/ghostty-shaders/bettercrt.glsl";
       custom-shader-animation = "always";
-      cursor-style = "block_hollow";
+      cursor_style = "block_hollow";"
       font-family = "GohuFont uni14 Nerd Font";
     };
   };
 
-  stylix.enable = true;
+  ### Sylix Configs ###
+
+  stylix = {
+     image = $HOME/Pictures/Desktop_Wallpapers
+  }
+
 }

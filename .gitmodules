@@ -1,0 +1,3 @@
+[submodule "Submodules/ghostty-shaders"]
+	path = Submodules/ghostty-shaders
+	url = git@github.com:hackr-sh/ghostty-shaders.git

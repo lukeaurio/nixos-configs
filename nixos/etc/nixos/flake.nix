@@ -29,6 +29,7 @@
         ./programming-configuration.nix
         ./kde-plasma-configuration.nix
         ./desktop-packages.nix
+        ./stylix.nix
         inputs.home-manager.nixosModules.default
         inputs.home-manager.nixosModules.home-manager
         {

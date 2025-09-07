@@ -11,6 +11,7 @@
     uv
     opentofu
     qflipper
+    ghostty
     git-conventional-commits
     graphviz
     keychain
