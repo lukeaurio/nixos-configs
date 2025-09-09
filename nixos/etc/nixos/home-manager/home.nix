@@ -194,10 +194,10 @@
     enable = true;
     enableZshIntegration = true;
     settings = {
-      background = "000000";
+      #background = "000000";
       background-opacity = "0.6";
-      custom-shader = "$HOME/Submodules/ghostty-shaders/bettercrt.glsl";
-      custom-shader-animation = "always";
+      #custom-shader = "$HOME/Submodules/ghostty-shaders/bettercrt.glsl";
+      #custom-shader-animation = "always";
       cursor-style = "block";
       font-family = "GohuFont uni14 Nerd Font";
     };
