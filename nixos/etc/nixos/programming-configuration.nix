@@ -21,12 +21,14 @@
     bat
     tree
     spotify-player
+    platformio-core
     (vscode-with-extensions.override {
       vscodeExtensions = with vscode-extensions; [
         bbenoist.nix
         ms-python.python
         ms-azuretools.vscode-docker
         ms-vscode-remote.remote-ssh
+        platformio.platformio-vscode-ide
         github.copilot
         github.copilot-chat
         mhutchie.git-graph
@@ -35,10 +37,7 @@
     })
 
   ];
-
-
   services.tailscale.enable = true;
   programs.ssh.startAgent = true;
-
-
+  
 }

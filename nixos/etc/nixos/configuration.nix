@@ -137,6 +137,8 @@
   ];
 
 
+
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -156,6 +158,14 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
   #networking.trustedInterfaces = [ "tailscale0" ];
+
+  ## Enable UDEV Rules
+
+  hardware.flipperzero.enable = true;
+  services.udev.extraRules = ''
+    # VIAL /VIA
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+    '';
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

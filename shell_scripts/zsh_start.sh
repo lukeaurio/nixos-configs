@@ -21,7 +21,7 @@ nix-search() {
 # Reload .bashrc
 reload() {
     . ~/.zshrc
-    echo "Reloaded ~/.bashrc"
+    echo "Reloaded ~/.zshrc"
 }
 
 # Bash completion for dotgit
@@ -29,7 +29,7 @@ if type _git &>/dev/null; then
   complete -o default -o nospace -F _git nixgit
 fi
 
-eval 'keychain --eval id_ed25519'
-ssh-add ~/.ssh/id_ed25519
+#eval 'keychain --eval id_ed25519'
+#ssh-add ~/.ssh/id_ed25519
 
 [[ "$TERM_PROGRAM" == "code" ]] && . "$(code --locate-shell-integration-path zsh)"
