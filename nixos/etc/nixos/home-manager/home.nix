@@ -89,7 +89,7 @@
        la = "ls -lAh";
        ll = "ls -lah";
        lg = "lazygit";
-       snv = "sudo neovim";
+       snv = "sudo nvim";
        nixgit = "git --git-dir=$HOME/.nixos-config/ --work-tree=$HOME";
        lazynix = "lazygit --git-dir=$HOME/.nixos-config/ --work-tree=$HOME";
        ghostcuts = "ghostty +list-keybinds --default";
