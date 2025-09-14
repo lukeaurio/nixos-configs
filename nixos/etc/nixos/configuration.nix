@@ -35,7 +35,12 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = { 
+      enable = true;
+      plugins = [
+         pkgs.networkmanager-openvpn
+      ];
+  };
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -132,7 +137,7 @@
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
-    "ventoy-1.1.05"
+    "ventoy-1.1.07"
     "libsoup-2.74.3"
   ];
 

@@ -24,6 +24,7 @@ environment.systemPackages = with pkgs; [
     vencord
     filezilla
     spotify
+    qbittorrent
     #3dprinting
     orca-slicer
     blender
