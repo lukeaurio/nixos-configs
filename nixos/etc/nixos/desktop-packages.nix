@@ -23,7 +23,6 @@ environment.systemPackages = with pkgs; [
     discord
     vencord
     filezilla
-    spotify
     qbittorrent
     #3dprinting
     orca-slicer

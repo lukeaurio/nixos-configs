@@ -15,8 +15,8 @@
       
       fonts = {
         monospace = {
-           package = pkgs.nerd-fonts.gohufont;
-           name = "GohuFont uni14 Nerd Font";
+           package = pkgs.nerd-fonts.hasklug;
+           name = "Hasklug Nerd Font Mono";
         };
     	serif = config.stylix.fonts.monospace;
     	sansSerif = config.stylix.fonts.monospace;

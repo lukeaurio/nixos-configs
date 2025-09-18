@@ -24,27 +24,19 @@
     zoxide
     bat
     tree
-    spotify-player
+    curl
+    fzf
+    ripgrep
+    fd
+    libgcc
+    gccNGPackages_15.libstdcxx
+    #tui locations
+    ncspot
     jellyfin-tui
+    reddit-tui
     #vscode, editors and extensions
     platformio-core
-    (vscode-with-extensions.override {
-      vscodeExtensions = with vscode-extensions; [
-        bbenoist.nix
-        ms-python.python
-        ms-azuretools.vscode-docker
-        ms-vscode-remote.remote-ssh
-        platformio.platformio-vscode-ide
-        golang.go
-        budparr.language-hugo-vscode
-        github.copilot
-        github.copilot-chat
-        mhutchie.git-graph
-        waderyan.gitblame
-      ];
-    })
     neovim
-
   ];
   services.tailscale.enable = true;
   programs.ssh.startAgent = true;
@@ -68,7 +60,8 @@
              nix.enable = true;
              python.enable = true;
              rust.enable = true;
-             enableLSP = true;
+             go.enable = true;
+             #enableLSP = true;
              enableTreesitter = true;
           };
           viAlias = false;
@@ -79,6 +72,19 @@
           statusline.lualine.enable = true;
           telescope.enable = true;
           autocomplete.nvim-cmp.enable = true;
+          terminal = { 
+             toggleterm = {
+                enable = true;
+                lazygit = {
+                   enable = true;
+                   direction = "float";
+                };
+             };
+             
+          };
+          lazy = {
+             enable = true;
+          };
        }; 
     };
   };

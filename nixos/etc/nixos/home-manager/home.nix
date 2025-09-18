@@ -95,6 +95,7 @@
        ghostcuts = "ghostty +list-keybinds --default";
        man = "tldr";
        cat = "bat";
+       nixclean = "nix-env --delete-generations 10d && nix-store --gc";
      };
      initContent = ''
      source $HOME/shell_scripts/zsh_start.sh 
@@ -208,6 +209,24 @@
   programs.nixcord = {
      enable  = true; 
      vesktop.enable  = true;
+  };
+
+  programs.vscode = {
+    enable = true; 
+    mutableExtensionsDir = false;
+    extensions = with pkgs.vscode-extensions; [
+        bbenoist.nix
+        ms-python.python
+        ms-azuretools.vscode-docker
+        ms-vscode-remote.remote-ssh
+        platformio.platformio-vscode-ide
+        golang.go
+        budparr.language-hugo-vscode
+        github.copilot
+        github.copilot-chat
+        mhutchie.git-graph
+        waderyan.gitblame
+    ]; # https://github.com/Arut0ria/nixos-desktop-config/blob/main/homeManagerModules/programs/vscode.nix for reference
   };
 
   stylix = {
