@@ -10,8 +10,8 @@
         #desert
         #url = "https://raw.githubusercontent.com/lukeaurio/nixos-configs/refs/heads/main/Pictures/Desktop_Backgrounds/DesertVista.jpg";
         #hash = "sha256-lZjfYxB/8qDNK97W/4Oafo+R26eImOLe6nLvWhZb6+M=";
-        url = "https://raw.githubusercontent.com/lukeaurio/nixos-configs/refs/heads/main/Pictures/Desktop_Backgrounds/ChromaticTemple.png";
-        hash = "sha256-lZttNjJjYvjnnmaOJ/vz3UAoT1YjBUaRu6Z+9bN9IbM=";
+        url = "https://raw.githubusercontent.com/lukeaurio/nixos-configs/refs/heads/main/Pictures/Desktop_Backgrounds/ScalableTemple.png";
+        hash = "sha256-Mj8ZSiJ3ksH4fyfU60GOaSAnmBxWVIxBhw807bmm/2I=";
       };
       polarity = "dark";
       
