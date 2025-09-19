@@ -137,7 +137,8 @@
     git
     fastfetch
     usbutils
-  ];
+    openssl  
+];
 
   nixpkgs.config.permittedInsecurePackages = [
     "ventoy-1.1.07"
