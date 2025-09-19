@@ -69,6 +69,11 @@
           lsp = {
              enable = true;
           };
+          startPlugins = [
+             "harpoon"
+             "nvim-notify"
+             "render-markdown-nvim"
+          ];
           statusline.lualine.enable = true;
           telescope.enable = true;
           autocomplete.nvim-cmp.enable = true;
@@ -85,6 +90,19 @@
           lazy = {
              enable = true;
           };
+          assistant.copilot = {
+             enable = true;
+             cmp.enable = true;
+             setupOpts = {
+                panel = {
+                   enable = true;
+                   position = "right";
+                };
+             };
+          };
+          #visuals.tiny-devicons-auto-colors.enable = true;
+          withNodeJs = true;
+          withPython3 = true;
        }; 
     };
   };

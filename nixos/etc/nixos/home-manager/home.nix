@@ -105,7 +105,7 @@
      ''; #https://mynixos.com/home-manager/option/programs.zsh.initContent
      oh-my-zsh = { # "ohMyZsh" without Home Manager
        enable = true;
-       plugins = [ "git" "terraform" "zoxide"  ];
+       plugins = [ "git" "terraform" "zoxide" "dotenv" "poetry" "tailscale" ];
        theme = "robbyrussell";
      };
      history.size = 10000;
