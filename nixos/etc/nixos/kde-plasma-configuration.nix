@@ -18,6 +18,7 @@
     kdePackages.kolourpaint # Easy-to-use paint program
     kdePackages.ksystemlog # KDE SystemLog Application
     kdePackages.sddm-kcm # Configuration module for SDDM
+    kdePackages.krohnkite
     kdePackages.kwallet #Needed for Storign credentials to NetworkManager
     kdePackages.plasma-mobile
     kdePackages.qtvirtualkeyboard
@@ -32,6 +33,6 @@
     wl-clipboard # Command-line copy/paste utilities for Wayland
     iio-sensor-proxy #allow for screen roation
     maliit-keyboard # On-screen keyboard for touch devices
-    floorp
+    brave
   ];
 }

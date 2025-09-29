@@ -230,6 +230,10 @@
     ]; # https://github.com/Arut0ria/nixos-desktop-config/blob/main/homeManagerModules/programs/vscode.nix for reference
   };
 
+  programs.floorp = {
+    enable = true;
+  };
+
   stylix = {
     enable = true;
     targets = {
