@@ -190,7 +190,8 @@
       ],
       "final_space": true,
       "version": 3
-    }''));
+    }
+  ''));
   };
 
   programs.ghostty = {
