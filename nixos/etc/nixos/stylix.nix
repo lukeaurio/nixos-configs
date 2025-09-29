@@ -11,7 +11,7 @@
         #url = "https://raw.githubusercontent.com/lukeaurio/nixos-configs/refs/heads/main/Pictures/Desktop_Backgrounds/DesertVista.jpg";
         #hash = "sha256-lZjfYxB/8qDNK97W/4Oafo+R26eImOLe6nLvWhZb6+M=";
         url = "https://raw.githubusercontent.com/lukeaurio/nixos-configs/refs/heads/main/Pictures/Desktop_Backgrounds/ScalableTemple.png";
-        hash = "sha256-Mj8ZSiJ3ksH4fyfU60GOaSAnmBxWVIxBhw807bmm/2I=";
+        hash = "sha256-Aooohj99uA9I5UMg52tHoe8UYe0+MophMDqei8TGJLg=";
       };
       polarity = "dark";
       
