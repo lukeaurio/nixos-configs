@@ -1,5 +1,9 @@
 { config, pkgs, ...}:
-
+let
+  gdk = pkgs.google-cloud-sdk.withExtraComponents( with pkgs.google-cloud-sdk.components; [
+    gke-gcloud-auth-plugin
+  ]);
+in
 {
 
   environment.systemPackages = with pkgs; [
@@ -37,6 +41,8 @@
     #vscode, editors and extensions
     platformio-core
     neovim
+    #Cloud Platforms
+    gdk
   ];
   services.tailscale.enable = true;
   programs.ssh.startAgent = true;
