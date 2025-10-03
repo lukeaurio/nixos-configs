@@ -105,7 +105,15 @@
      ''; #https://mynixos.com/home-manager/option/programs.zsh.initContent
      oh-my-zsh = { # "ohMyZsh" without Home Manager
        enable = true;
-       plugins = [ "git" "terraform" "zoxide" "dotenv" "poetry" "tailscale" ];
+       plugins = [ 
+         "git"
+         "terraform" 
+         "gcloud" 
+         "zoxide" 
+         "dotenv" 
+         "poetry" 
+         "tailscale" 
+       ];
        theme = "robbyrussell";
      };
      history.size = 10000;
@@ -225,6 +233,7 @@
         budparr.language-hugo-vscode
         github.copilot
         github.copilot-chat
+        github.vscode-github-actions
         mhutchie.git-graph
         waderyan.gitblame
     ]; # https://github.com/Arut0ria/nixos-desktop-config/blob/main/homeManagerModules/programs/vscode.nix for reference
