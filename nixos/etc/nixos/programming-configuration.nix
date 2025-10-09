@@ -25,6 +25,7 @@ in
     keychain
     tealdeer
     lazygit
+    lazydocker
     zoxide
     bat
     tree
@@ -54,7 +55,6 @@ in
     viAlias = true;
     defaultEditor = true;
   };
-
 
   programs.nvf = {
     enable = true;  

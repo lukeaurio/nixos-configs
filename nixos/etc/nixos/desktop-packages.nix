@@ -26,7 +26,7 @@ environment.systemPackages = with pkgs; [
     qbittorrent
     #3dprinting
     orca-slicer
-    blender
+    #blender
     openscad
     #keebs
     via

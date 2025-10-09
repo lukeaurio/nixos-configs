@@ -223,7 +223,7 @@
   programs.vscode = {
     enable = true; 
     mutableExtensionsDir = false;
-    extensions = with pkgs.vscode-extensions; [
+    profiles.default.extensions = with pkgs.vscode-extensions; [
         bbenoist.nix
         ms-python.python
         ms-azuretools.vscode-docker
@@ -253,6 +253,7 @@
           "Dark Modern"
         ];
       };
+      floorp.profileNames = [ "default" ];
     };
   };
 }
