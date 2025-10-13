@@ -35,6 +35,8 @@ in
     fd
     libgcc
     gccNGPackages_15.libstdcxx
+    jq
+    yq
     #tui locations
     ncspot
     jellyfin-tui
