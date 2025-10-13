@@ -226,10 +226,12 @@
     profiles.default.extensions = with pkgs.vscode-extensions; [
         bbenoist.nix
         ms-python.python
+        ms-python.vscode-pylance
+        #ms-python.pylint
+        ms-python.debugpy
         ms-azuretools.vscode-docker
         ms-vscode-remote.remote-ssh
         platformio.platformio-vscode-ide
-        golang.go
         budparr.language-hugo-vscode
         github.copilot
         github.copilot-chat
