@@ -32,9 +32,11 @@ environment.systemPackages = with pkgs; [
     via
     vial
     #office
-    #libreoffice
+    libreoffice-qt
+    hunspell
+    hunspellDicts.en_US
     #utils
-    rpi-imager
+    #rpi-imager
     ventoy
    ];
 }

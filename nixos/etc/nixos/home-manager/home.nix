@@ -137,8 +137,10 @@
 
   programs.git = {
     enable = true;
-    userName  = "Lukas Aurio";
-    userEmail = "lukeaurio@proton.me";
+    settings = {
+      user.email = "lukeaurio@proton.me";
+      user.name = "Lukas Aurio";
+    };
   };
 
   programs.oh-my-posh = {
@@ -217,7 +219,7 @@
 
   programs.nixcord = {
      enable  = true; 
-     vesktop.enable  = true;
+     #vesktop.enable  = true;
   };
 
   programs.vscode = {
@@ -225,17 +227,25 @@
     mutableExtensionsDir = false;
     profiles.default.extensions = with pkgs.vscode-extensions; [
         bbenoist.nix
+        #python
         ms-python.python
         ms-python.vscode-pylance
         #ms-python.pylint
         ms-python.debugpy
+        #go
+        golang.go
+        #remotes
         ms-azuretools.vscode-docker
         ms-vscode-remote.remote-ssh
+        #platformio - hardware
         platformio.platformio-vscode-ide
+        #Hugo
         budparr.language-hugo-vscode
+        #github
         github.copilot
         github.copilot-chat
         github.vscode-github-actions
+        #git tools
         mhutchie.git-graph
         waderyan.gitblame
     ]; # https://github.com/Arut0ria/nixos-desktop-config/blob/main/homeManagerModules/programs/vscode.nix for reference

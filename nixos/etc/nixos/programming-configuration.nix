@@ -15,9 +15,10 @@ in
     uv
     opentofu
     go
+    gopls
     hugo
     #tools
-    qflipper
+    qFlipper
     ghostty
     #command line tooling
     git-conventional-commits
