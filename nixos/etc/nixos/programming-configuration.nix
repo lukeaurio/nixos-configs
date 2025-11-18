@@ -51,21 +51,13 @@ in
   services.tailscale.enable = true;
   programs.ssh.startAgent = true;
 
-  #Neovim NVF Config
-  programs.neovim = {
-    enable = true;
-    vimAlias = true;
-    viAlias = true;
-    defaultEditor = true;
-  };
-
   programs.nvf = {
     enable = true;  
     # Your settings need to go into the settings attribute set
     # most settings are documented in the appendix
     settings = {
        vim = {
-          languages = { 
+         languages = { 
              nix.enable = true;
              python.enable = true;
              rust.enable = true;
