@@ -30,6 +30,15 @@
   nix.gc.options = "delete-older-than 10d";
   nix.settings.auto-optimise-store = true;
 
+  #firmware updater - Framework specific
+  services.fwupd = {
+        enable = true;
+        extraRemotes = [ "lvfs-testing" ];
+# Might be necessary once to make the update succeed
+        uefiCapsuleSettings.DisableCapsuleUpdateOnDisk = true;
+  };
+
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";

@@ -12,7 +12,7 @@ environment.systemPackages = with pkgs; [
     handbrake
     makemkv
     libdvdcss
-    ccextractor
+    #ccextractor
     mkvtoolnix
     subtitleedit
     asunder
