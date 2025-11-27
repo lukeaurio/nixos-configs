@@ -27,6 +27,7 @@ environment.systemPackages = with pkgs; [
     #3dprinting
     orca-slicer
     #blender
+    gimp
     openscad
     #keebs
     via
