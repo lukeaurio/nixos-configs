@@ -252,7 +252,7 @@
   };
 
   programs.floorp = {
-    enable = true;
+    enable = false;
   };
 
   stylix = {
