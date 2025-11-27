@@ -11,7 +11,7 @@
 
   environment.systemPackages = with pkgs;
   [
-    kdePackages.discover # Optional: Install if you use Flatpak or fwupd firmware update sevice
+    #kdePackages.discover # Optional: Install if you use Flatpak or fwupd firmware update sevice
     kdePackages.kcalc # Calculator
     kdePackages.kcharselect # Tool to select and copy special characters from all installed fonts
     kdePackages.kcolorchooser # A small utility to select a color
@@ -34,5 +34,6 @@
     iio-sensor-proxy #allow for screen roation
     maliit-keyboard # On-screen keyboard for touch devices
     brave
+    libinput
   ];
 }
