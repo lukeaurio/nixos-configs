@@ -18,6 +18,7 @@ in {
     go
     gopls
     hugo
+    nodePackages.nodejs
     #tools
     qFlipper
     ghostty
@@ -155,5 +156,4 @@ in {
       };
     };
   };
-  
 }
