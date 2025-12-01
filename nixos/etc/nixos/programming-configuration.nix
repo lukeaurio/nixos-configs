@@ -62,6 +62,7 @@ in {
         languages = {
           nix.enable = true;
           python.enable = true;
+          markdown.enable = true;
           rust = {
             enable = true;
             crates.enable = true;
