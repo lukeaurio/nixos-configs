@@ -108,7 +108,36 @@ in {
           "nvim-notify"
           "render-markdown-nvim"
         ];
+        filetree = {
+          neo-tree = {
+            enable = true;
+          };
+        };
+
+        tabline = {
+          nvimBufferline.enable = true;
+        };
+
+        treesitter.context.enable = true;
+
+        binds = {
+          whichKey.enable = true;
+          cheatsheet.enable = true;
+        };
         telescope.enable = true;
+        git = {
+          enable = true;
+          gitsigns.enable = true;
+          gitsigns.codeActions.enable = false; # throws an annoying debug message
+          neogit.enable = true;
+        };
+
+        minimap = {
+          minimap-vim.enable = false;
+          codewindow.enable = true;
+        };
+
+        autopairs.nvim-autopairs.enable = true;
         autocomplete.nvim-cmp.enable = true;
         terminal = {
           toggleterm = {
@@ -123,7 +152,7 @@ in {
           borders.enable = true;
           noice.enable = true;
           colorizer.enable = true;
-          modes-nvim.enable = false; # the theme looks terrible with catppuccin
+          modes-nvim.enable = false;
           illuminate.enable = true;
           breadcrumbs = {
             enable = true;
@@ -174,8 +203,8 @@ in {
           };
         };
         #visuals.tiny-devicons-auto-colors.enable = true;
-        withNodeJs = true;
-        withPython3 = true;
+        #withNodeJs = true;
+        #withPython3 = true;
       };
     };
   };
