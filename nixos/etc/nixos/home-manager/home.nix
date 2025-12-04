@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "willberto";
@@ -13,7 +15,7 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "25.05"; # Please read the comment before changing.
+  home.stateVersion = "26.05"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -75,56 +77,57 @@
   programs.home-manager.enable = true;
 
   programs.zsh = {
-     enable = true;
-     enableCompletion = true;
-     syntaxHighlighting.enable = true;
+    enable = true;
+    enableCompletion = true;
+    syntaxHighlighting.enable = true;
 
-     shellAliases = {
-       update = "sudo nixos-rebuild switch";
-       ".." = "cd ..";
-       "..." = "cd ../..";
-       "...." = "cd ../../..";
-       ls = "tree -L 1";
-       l = "ls -lh";
-       la = "ls -lAh";
-       ll = "ls -lah";
-       lg = "lazygit";
-       snv = "sudo nvim";
-       nixgit = "git --git-dir=$HOME/.nixos-config/ --work-tree=$HOME";
-       lazynix = "lazygit --git-dir=$HOME/.nixos-config/ --work-tree=$HOME";
-       ghostcuts = "ghostty +list-keybinds --default";
-       man = "tldr";
-       cat = "bat";
-       nixclean = "nix-env --delete-generations 10d && nix-store --gc";
-     };
-     initContent = ''
-     source $HOME/shell_scripts/zsh_start.sh 
-     if [ "$VSCODE_INJECTION" = "1" ]; then
-       export EDITOR="code --wait" # or 'code-insiders' if you're using VS Code Insiders
-     fi
-     ''; #https://mynixos.com/home-manager/option/programs.zsh.initContent
-     oh-my-zsh = { # "ohMyZsh" without Home Manager
-       enable = true;
-       plugins = [ 
-         "git"
-         "terraform" 
-         "gcloud" 
-         "zoxide" 
-         "dotenv" 
-         "poetry" 
-         "tailscale" 
-       ];
-       theme = "robbyrussell";
-     };
-     history.size = 10000;
+    shellAliases = {
+      update = "sudo nixos-rebuild switch";
+      ".." = "cd ..";
+      "..." = "cd ../..";
+      "...." = "cd ../../..";
+      ls = "tree -L 1";
+      l = "ls -lh";
+      la = "ls -lAh";
+      ll = "ls -lah";
+      lg = "lazygit";
+      snv = "sudo nvim";
+      nixgit = "git --git-dir=$HOME/.nixos-config/ --work-tree=$HOME";
+      lazynix = "lazygit --git-dir=$HOME/.nixos-config/ --work-tree=$HOME";
+      ghostcuts = "ghostty +list-keybinds --default";
+      man = "tldr";
+      cat = "bat";
+      nixclean = "nix-env --delete-generations 10d && nix-store --gc";
+    };
+    initContent = ''
+      source $HOME/shell_scripts/zsh_start.sh
+      if [ "$VSCODE_INJECTION" = "1" ]; then
+        export EDITOR="code --wait" # or 'code-insiders' if you're using VS Code Insiders
+      fi
+    ''; #https://mynixos.com/home-manager/option/programs.zsh.initContent
+    oh-my-zsh = {
+      # "ohMyZsh" without Home Manager
+      enable = true;
+      plugins = [
+        "git"
+        "terraform"
+        "gcloud"
+        "zoxide"
+        "dotenv"
+        "poetry"
+        "tailscale"
+      ];
+      theme = "robbyrussell";
+    };
+    history.size = 10000;
   };
 
   programs.keychain = {
     enable = true;
     #agents = [ "ssh" ];
-    keys = [ "id_ed25519" ];
+    keys = ["id_ed25519"];
     extraFlags = [
-      "--quiet" 
+      "--quiet"
       "--ssh-allow-forwarded"
     ];
     enableZshIntegration = true;
@@ -144,64 +147,64 @@
   };
 
   programs.oh-my-posh = {
-     enable = true;
-     enableZshIntegration = true;
-     settings = builtins.fromJSON (builtins.unsafeDiscardStringContext (''
-    {
-      "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-      "blocks": [
-        {
-          "alignment": "left",
-          "segments": [
-            {
-              "background": "#18354c",
-              "foreground": "#ffc107",
-              "leading_diamond": "\ue0b6",
-              "properties": {
-                "style": "fish",
-                "full_length_dirs": 1,
-                "dir_legth": 3
+    enable = true;
+    enableZshIntegration = true;
+    settings = builtins.fromJSON (builtins.unsafeDiscardStringContext ''
+      {
+        "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+        "blocks": [
+          {
+            "alignment": "left",
+            "segments": [
+              {
+                "background": "#18354c",
+                "foreground": "#ffc107",
+                "leading_diamond": "\ue0b6",
+                "properties": {
+                  "style": "fish",
+                  "full_length_dirs": 1,
+                  "dir_legth": 3
+                },
+                "style": "diamond",
+                "template": " \ue5ff {{ .Path }} ",
+                "trailing_diamond": "\ue0b0",
+                "type": "path"
               },
-              "style": "diamond",
-              "template": " \ue5ff {{ .Path }} ",
-              "trailing_diamond": "\ue0b0",
-              "type": "path"
-            },
-            {
-              "background": "#18354c",
-              "foreground": "#ffc107",
-              "powerline_symbol": "\ue0b0",
-              "properties": {
-                "fetch_upstream_icon": true
+              {
+                "background": "#18354c",
+                "foreground": "#ffc107",
+                "powerline_symbol": "\ue0b0",
+                "properties": {
+                  "fetch_upstream_icon": true
+                },
+                "style": "powerline",
+                "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+                "type": "git"
               },
-              "style": "powerline",
-              "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
-              "type": "git"
-            },
-            {
-              "background": "#ffc107",
-              "foreground": "#18354c",
-              "powerline_symbol": "\ue0b0",
-              "style": "powerline",
-              "template": " \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} ",
-              "type": "python"
-            },
-            {
-              "background": "#ffc107",
-              "foreground": "#18354c",
-              "powerline_symbol": "\ue0b0",
-              "style": "powerline",
-              "template": " \uf0e7 ",
-              "type": "root"
-            }
-          ],
-          "type": "prompt"
-        }
-      ],
-      "final_space": true,
-      "version": 3
-    }
-  ''));
+              {
+                "background": "#ffc107",
+                "foreground": "#18354c",
+                "powerline_symbol": "\ue0b0",
+                "style": "powerline",
+                "template": " \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} ",
+                "type": "python"
+              },
+              {
+                "background": "#ffc107",
+                "foreground": "#18354c",
+                "powerline_symbol": "\ue0b0",
+                "style": "powerline",
+                "template": " \uf0e7 ",
+                "type": "root"
+              }
+            ],
+            "type": "prompt"
+          }
+        ],
+        "final_space": true,
+        "version": 3
+      }
+    '');
   };
 
   programs.ghostty = {
@@ -218,36 +221,36 @@
   };
 
   programs.nixcord = {
-     enable  = true; 
-     #vesktop.enable  = true;
+    enable = true;
+    #vesktop.enable  = true;
   };
 
   programs.vscode = {
-    enable = true; 
+    enable = true;
     mutableExtensionsDir = false;
     profiles.default.extensions = with pkgs.vscode-extensions; [
-        bbenoist.nix
-        #python
-        ms-python.python
-        ms-python.vscode-pylance
-        #ms-python.pylint
-        ms-python.debugpy
-        #go
-        golang.go
-        #remotes
-        ms-azuretools.vscode-docker
-        ms-vscode-remote.remote-ssh
-        #platformio - hardware
-        platformio.platformio-vscode-ide
-        #Hugo
-        budparr.language-hugo-vscode
-        #github
-        github.copilot
-        github.copilot-chat
-        github.vscode-github-actions
-        #git tools
-        mhutchie.git-graph
-        waderyan.gitblame
+      bbenoist.nix
+      #python
+      ms-python.python
+      ms-python.vscode-pylance
+      #ms-python.pylint
+      ms-python.debugpy
+      #go
+      golang.go
+      #remotes
+      ms-azuretools.vscode-docker
+      ms-vscode-remote.remote-ssh
+      #platformio - hardware
+      platformio.platformio-vscode-ide
+      #Hugo
+      budparr.language-hugo-vscode
+      #github
+      github.copilot
+      github.copilot-chat
+      github.vscode-github-actions
+      #git tools
+      mhutchie.git-graph
+      waderyan.gitblame
     ]; # https://github.com/Arut0ria/nixos-desktop-config/blob/main/homeManagerModules/programs/vscode.nix for reference
   };
 
@@ -265,7 +268,7 @@
           "Dark Modern"
         ];
       };
-      floorp.profileNames = [ "default" ];
+      floorp.profileNames = ["default"];
     };
   };
 }

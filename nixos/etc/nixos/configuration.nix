@@ -1,14 +1,16 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, lib,  ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -32,23 +34,22 @@
 
   #firmware updater - Framework specific
   services.fwupd = {
-        enable = true;
-        extraRemotes = [ "lvfs-testing" ];
-# Might be necessary once to make the update succeed
-        uefiCapsuleSettings.DisableCapsuleUpdateOnDisk = true;
+    enable = true;
+    extraRemotes = ["lvfs-testing"];
+    # Might be necessary once to make the update succeed
+    uefiCapsuleSettings.DisableCapsuleUpdateOnDisk = true;
   };
-
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager = { 
-      enable = true;
-      plugins = [
-         pkgs.networkmanager-openvpn
-      ];
+  networking.networkmanager = {
+    enable = true;
+    plugins = [
+      pkgs.networkmanager-openvpn
+    ];
   };
 
   # Set your time zone.
@@ -71,12 +72,11 @@
 
   #Install Global Font Packages
   fonts.packages = with pkgs; [
-         nerd-fonts._3270   
-         nerd-fonts.gohufont
-         nerd-fonts.hack
-         nerd-fonts.hasklug
-  ]; 
-  
+    nerd-fonts._3270
+    nerd-fonts.gohufont
+    nerd-fonts.hack
+    nerd-fonts.hasklug
+  ];
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
@@ -92,7 +92,7 @@
   services.printing.enable = true;
 
   # Enable Bluetooth
-  hardware.bluetooth = { 
+  hardware.bluetooth = {
     enable = true;
     powerOnBoot = true;
   };
@@ -104,7 +104,6 @@
       setSocketVariable = true;
     };
   };
-
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -130,17 +129,16 @@
     isNormalUser = true;
     initialPassword = "ChangeMe!";
     description = "Willberto Dotbiz";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = ["networkmanager" "wheel" "docker"];
     shell = pkgs.zsh;
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
   };
   programs.zsh.enable = true;
 
-
   #stylix.enable = true;
-  
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -155,16 +153,13 @@
     git
     fastfetch
     usbutils
-    openssl  
-];
+    openssl
+  ];
 
   nixpkgs.config.permittedInsecurePackages = [
     "ventoy-1.1.07"
     "libsoup-2.74.3"
   ];
-
-
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -181,7 +176,7 @@
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
-  networking.firewall.allowedUDPPorts = [ 41641 ];
+  networking.firewall.allowedUDPPorts = [41641];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
   #networking.trustedInterfaces = [ "tailscale0" ];
@@ -193,7 +188,7 @@
   services.udev.extraRules = ''
     # VIAL /VIA
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
-    '';
+  '';
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -202,6 +197,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
-
