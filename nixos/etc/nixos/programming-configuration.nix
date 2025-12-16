@@ -65,7 +65,7 @@ in {
           markdown.enable = true;
           rust = {
             enable = true;
-            crates.enable = true;
+            extensions.crates-nvim.enable = true;
           };
           ts.enable = true;
           lua.enable = true;
