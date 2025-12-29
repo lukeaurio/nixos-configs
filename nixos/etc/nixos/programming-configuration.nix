@@ -19,6 +19,8 @@ in {
     gopls
     hugo
     nodePackages.nodejs
+    rustup
+    rust-analyzer
     #tools
     qFlipper
     ghostty

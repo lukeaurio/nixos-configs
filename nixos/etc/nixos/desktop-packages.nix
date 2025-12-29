@@ -1,8 +1,9 @@
-{ config, pkgs, ...}:
-
 {
-
-environment.systemPackages = with pkgs; [
+  config,
+  pkgs,
+  ...
+}: {
+  environment.systemPackages = with pkgs; [
     #Audio Packages
     yoshimi
     vlc
@@ -12,7 +13,7 @@ environment.systemPackages = with pkgs; [
     handbrake
     makemkv
     libdvdcss
-    #ccextractor
+    ccextractor
     mkvtoolnix
     subtitleedit
     asunder
@@ -39,5 +40,5 @@ environment.systemPackages = with pkgs; [
     #utils
     #rpi-imager
     ventoy
-   ];
+  ];
 }

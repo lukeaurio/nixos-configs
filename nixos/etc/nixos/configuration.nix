@@ -89,7 +89,21 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      cups-filters
+      cups-browsed
+      canon-cups-ufr2
+      cnijfilter2
+    ];
+  };
 
   # Enable Bluetooth
   hardware.bluetooth = {
@@ -154,6 +168,7 @@
     fastfetch
     usbutils
     openssl
+    nix-tree
   ];
 
   nixpkgs.config.permittedInsecurePackages = [

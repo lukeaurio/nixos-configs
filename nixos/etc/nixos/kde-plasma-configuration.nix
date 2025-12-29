@@ -1,6 +1,8 @@
-{ config, pkgs, ...}:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   services = {
     desktopManager.plasma6.enable = true;
 
@@ -9,8 +11,7 @@
     displayManager.sddm.wayland.enable = true;
   };
 
-  environment.systemPackages = with pkgs;
-  [
+  environment.systemPackages = with pkgs; [
     #kdePackages.discover # Optional: Install if you use Flatpak or fwupd firmware update sevice
     kdePackages.kcalc # Calculator
     kdePackages.kcharselect # Tool to select and copy special characters from all installed fonts
@@ -22,7 +23,7 @@
     kdePackages.kwallet #Needed for Storign credentials to NetworkManager
     kdePackages.plasma-mobile
     kdePackages.qtvirtualkeyboard
-    #libsForQt5.plasma-settings #Needed to Configure Plasma    
+    #libsForQt5.plasma-settings #Needed to Configure Plasma
     #libsForQt5.plasma-mobile #Plasma MobileSetings
     kdiff3 # Compares and merges 2 or 3 files or directories
     kdePackages.isoimagewriter # Optional: Program to write hybrid ISO files onto USB disks

@@ -94,6 +94,7 @@
       snv = "sudo nvim";
       nixgit = "git --git-dir=$HOME/.nixos-config/ --work-tree=$HOME";
       lazynix = "lazygit --git-dir=$HOME/.nixos-config/ --work-tree=$HOME";
+      rustdoc = "rustup doc --book";
       ghostcuts = "ghostty +list-keybinds --default";
       man = "tldr";
       cat = "bat";
@@ -116,6 +117,8 @@
         "dotenv"
         "poetry"
         "tailscale"
+        "rust"
+        #"tmux"
       ];
       theme = "robbyrussell";
     };
@@ -244,6 +247,8 @@
       platformio.platformio-vscode-ide
       #Hugo
       budparr.language-hugo-vscode
+      # Rust
+      rust-lang.rust-analyzer
       #github
       github.copilot
       github.copilot-chat
