@@ -99,6 +99,7 @@
       man = "tldr";
       cat = "bat";
       nixclean = "nix-env --delete-generations 10d && nix-store --gc";
+      flakeup = "sudo nix flake update && sudo nixos-rebuild switch";
     };
     initContent = ''
       source $HOME/shell_scripts/zsh_start.sh
