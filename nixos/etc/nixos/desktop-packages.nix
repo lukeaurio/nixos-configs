@@ -10,7 +10,7 @@
     qpwgraph
     muse
     audacity
-    handbrake
+    #handbrake
     makemkv
     libdvdcss
     ccextractor
