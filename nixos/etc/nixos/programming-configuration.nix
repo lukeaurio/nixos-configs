@@ -49,6 +49,7 @@ in {
     #vscode, editors and extensions
     platformio-core
     neovim
+    tree-sitter
     #Cloud Platforms
     gdk
   ];
@@ -97,6 +98,7 @@ in {
           lspSignature.enable = false; # conflicts with blink in maximal
           otter-nvim.enable = true;
           nvim-docs-view.enable = true;
+          harper-ls.enable = true;
         };
 
         debugger = {
@@ -105,11 +107,6 @@ in {
             ui.enable = true;
           };
         };
-        startPlugins = [
-          "harpoon"
-          "nvim-notify"
-          "render-markdown-nvim"
-        ];
         filetree = {
           neo-tree = {
             enable = true;
@@ -136,11 +133,44 @@ in {
 
         minimap = {
           minimap-vim.enable = false;
-          codewindow.enable = true;
+          codewindow.enable = false;
         };
 
         autopairs.nvim-autopairs.enable = true;
         autocomplete.nvim-cmp.enable = true;
+        notify = {
+          nvim-notify.enable = true;
+        };
+
+        projects = {
+          project-nvim.enable = true;
+        };
+
+        utility = {
+          ccc.enable = false;
+          vim-wakatime.enable = false;
+          diffview-nvim.enable = true;
+          yanky-nvim.enable = false;
+          qmk-nvim.enable = false; # requires hardware specific options
+          icon-picker.enable = true;
+          surround.enable = true;
+          leetcode-nvim.enable = true;
+          multicursors.enable = true;
+          smart-splits.enable = true;
+          undotree.enable = true;
+          nvim-biscuits.enable = false;
+
+          motion = {
+            hop.enable = true;
+            leap.enable = true;
+            precognition.enable = true;
+          };
+          images = {
+            image-nvim.enable = false;
+            img-clip.enable = true;
+          };
+        };
+
         terminal = {
           toggleterm = {
             enable = true;
