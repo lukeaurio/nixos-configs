@@ -19,7 +19,7 @@
     kdePackages.kolourpaint # Easy-to-use paint program
     kdePackages.ksystemlog # KDE SystemLog Application
     kdePackages.sddm-kcm # Configuration module for SDDM
-    kdePackages.krohnkite
+    kdePackages.krohnkite # Tiling window manager for KDE Plasma
     kdePackages.kwallet #Needed for Storign credentials to NetworkManager
     kdePackages.plasma-mobile
     kdePackages.qtvirtualkeyboard
