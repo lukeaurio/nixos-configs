@@ -20,11 +20,16 @@
     nixcord = {
       url = "github:FlameFlag/nixcord";
     };
+    nix-vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
+    nix-vscode-extensions,
     ...
   } @ inputs: {
     # use "nixos", or your hostname as the name of the configuration
