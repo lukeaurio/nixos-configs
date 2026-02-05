@@ -31,7 +31,17 @@
     nixpkgs,
     nix-vscode-extensions,
     ...
-  } @ inputs: {
+  } @ inputs: let
+    overlays = [
+      nix-vscode-extensions.overlay
+    ];
+    pkgs = sys:
+      import nixpkgs {
+        system = sys;
+        inherit overlays;
+        config = {allowUnfree = true;};
+      };
+  in {
     # use "nixos", or your hostname as the name of the configuration
     # it's a better practice than "default" shown in the video
     nixosConfigurations.framework-nixos = nixpkgs.lib.nixosSystem {
