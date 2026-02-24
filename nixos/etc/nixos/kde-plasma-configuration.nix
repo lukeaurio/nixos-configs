@@ -21,7 +21,8 @@
     kdePackages.sddm-kcm # Configuration module for SDDM
     kdePackages.krohnkite # Tiling window manager for KDE Plasma
     kdePackages.kwallet #Needed for Storign credentials to NetworkManager
-    kdePackages.plasma-mobile
+    kdePackages.plasma-mobile # Plasma Mobile components
+    kdePackages.plasma-keyboard # On-screen keyboard for Plasma
     kdePackages.qtvirtualkeyboard
     #libsForQt5.plasma-settings #Needed to Configure Plasma
     #libsForQt5.plasma-mobile #Plasma MobileSetings
@@ -33,7 +34,6 @@
     wayland-utils # Wayland utilities
     wl-clipboard # Command-line copy/paste utilities for Wayland
     iio-sensor-proxy #allow for screen roation
-    maliit-keyboard # On-screen keyboard for touch devices
     brave
     libinput
   ];

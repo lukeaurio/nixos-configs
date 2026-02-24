@@ -11,7 +11,7 @@
     muse
     audacity
     #handbrake
-    makemkv
+    #makemkv
     libdvdcss
     ccextractor
     mkvtoolnix
@@ -29,7 +29,7 @@
     orca-slicer
     #blender
     gimp
-    openscad
+    #openscad
     #keebs
     via
     vial
@@ -37,6 +37,8 @@
     libreoffice-qt
     hunspell
     hunspellDicts.en_US
+    xournalpp
+    #programming
     #utils
     #rpi-imager
     ventoy

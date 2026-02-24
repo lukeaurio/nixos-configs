@@ -24,6 +24,7 @@ in {
     #tools
     qFlipper
     ghostty
+    ffmpeg
     #command line tooling
     git-conventional-commits
     graphviz

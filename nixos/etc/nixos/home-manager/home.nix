@@ -221,6 +221,7 @@
       #custom-shader-animation = "always";
       cursor-style = "block";
       font-family = "GohuFont uni14 Nerd Font";
+      term = "xterm-256color";
     };
   };
 
@@ -251,9 +252,8 @@
       # Rust
       rust-lang.rust-analyzer
       #github
-      github.copilot
-      github.copilot-chat
-      github.vscode-github-actions
+      #github.copilot-chat
+      #github.vscode-github-actions
       #git tools
       mhutchie.git-graph
       waderyan.gitblame
