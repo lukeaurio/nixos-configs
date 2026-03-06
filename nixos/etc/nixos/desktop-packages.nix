@@ -10,8 +10,8 @@
     qpwgraph
     muse
     audacity
-    #handbrake
-    #makemkv
+    handbrake
+    makemkv
     libdvdcss
     ccextractor
     mkvtoolnix
@@ -33,6 +33,7 @@
     #keebs
     via
     vial
+    #winboat
     #office
     libreoffice-qt
     hunspell

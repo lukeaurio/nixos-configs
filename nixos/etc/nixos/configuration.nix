@@ -200,6 +200,10 @@
 
   hardware.flipperzero.enable = true;
   hardware.sensor.iio.enable = true;
+  services.udev.packages = [
+    pkgs.platformio-core
+    pkgs.openocd
+  ];
   services.udev.extraRules = ''
     # VIAL /VIA
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"

@@ -251,6 +251,8 @@
       budparr.language-hugo-vscode
       # Rust
       rust-lang.rust-analyzer
+      #C++
+      ms-vscode.cpptools-extension-pack
       #github
       #github.copilot-chat
       #github.vscode-github-actions
