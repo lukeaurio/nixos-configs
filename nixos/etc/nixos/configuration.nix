@@ -143,7 +143,7 @@
     isNormalUser = true;
     initialPassword = "ChangeMe!";
     description = "Willberto Dotbiz";
-    extraGroups = ["networkmanager" "wheel" "docker"];
+    extraGroups = ["networkmanager" "wheel" "docker" "dialout"];
     shell = pkgs.zsh;
     packages = with pkgs; [
       #  thunderbird

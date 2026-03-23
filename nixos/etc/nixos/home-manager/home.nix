@@ -242,6 +242,8 @@
       ms-python.debugpy
       #go
       golang.go
+      #Devops
+      hashicorp.terraform
       #remotes
       ms-azuretools.vscode-docker
       ms-vscode-remote.remote-ssh
@@ -252,6 +254,7 @@
       # Rust
       rust-lang.rust-analyzer
       #C++
+      ms-vscode.cpptools
       ms-vscode.cpptools-extension-pack
       #github
       #github.copilot-chat

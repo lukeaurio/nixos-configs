@@ -15,6 +15,7 @@ in {
     poetry
     uv
     opentofu
+    tofu-ls
     go
     gopls
     hugo
@@ -25,6 +26,8 @@ in {
     qFlipper
     ghostty
     ffmpeg
+    espflash
+    rpi-imager
     #command line tooling
     git-conventional-commits
     graphviz
