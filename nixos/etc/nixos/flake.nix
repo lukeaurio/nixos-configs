@@ -32,13 +32,10 @@
     nix-vscode-extensions,
     ...
   } @ inputs: let
-    overlays = [
-      nix-vscode-extensions.overlay
-    ];
     pkgs = sys:
       import nixpkgs {
         system = sys;
-        inherit overlays;
+        overlays = [inputs.nix-vscode-extensions.overlays.default];
         config = {allowUnfree = true;};
       };
   in {
@@ -51,6 +48,9 @@
           nix.settings.experimental-features = ["nix-command" "flakes"];
           boot.initrd.kernelModules = ["pinctrl_tigerlake"];
           boot.kernelModules = ["sg"];
+          nixpkgs.overlays = [
+            inputs.nix-vscode-extensions.overlays.default
+          ];
         }
         ./configuration.nix
         ./programming-configuration.nix
@@ -60,6 +60,7 @@
         inputs.home-manager.nixosModules.default
         inputs.home-manager.nixosModules.home-manager
         inputs.nvf.nixosModules.default
+
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;

@@ -232,37 +232,43 @@
 
   programs.vscode = {
     enable = true;
+    #package = pkgs.vscodium;
     mutableExtensionsDir = false;
-    profiles.default.extensions = with pkgs.vscode-extensions; [
-      bbenoist.nix
-      #python
-      ms-python.python
-      ms-python.vscode-pylance
-      #ms-python.pylint
-      ms-python.debugpy
-      #go
-      golang.go
-      #Devops
-      hashicorp.terraform
-      #remotes
-      ms-azuretools.vscode-docker
-      ms-vscode-remote.remote-ssh
-      #platformio - hardware
-      platformio.platformio-vscode-ide
-      #Hugo
-      budparr.language-hugo-vscode
-      # Rust
-      rust-lang.rust-analyzer
-      #C++
-      ms-vscode.cpptools
-      ms-vscode.cpptools-extension-pack
-      #github
-      #github.copilot-chat
-      #github.vscode-github-actions
-      #git tools
-      mhutchie.git-graph
-      waderyan.gitblame
-    ]; # https://github.com/Arut0ria/nixos-desktop-config/blob/main/homeManagerModules/programs/vscode.nix for reference
+    profiles.default = {
+      enableUpdateCheck = false;
+      enableExtensionUpdateCheck = false;
+      extensions = with pkgs.vscode-marketplace-release; [
+        bbenoist.nix
+        #python
+        ms-python.python
+        ms-python.vscode-pylance
+        #ms-python.pylint
+        ms-python.debugpy
+        #go
+        golang.go
+        #Devops
+        hashicorp.terraform
+        #remotes
+        ms-azuretools.vscode-docker
+        ms-vscode-remote.remote-ssh
+        #platformio - hardware
+        platformio.platformio-ide
+        #Hugo
+        budparr.language-hugo-vscode
+        # Rust
+        rust-lang.rust-analyzer
+        #C++
+        ms-vscode.cpptools
+        ms-vscode.cpptools-extension-pack
+        #github
+        openai.chatgpt
+        github.copilot-chat
+        github.vscode-github-actions
+        #git tools
+        mhutchie.git-graph
+        waderyan.gitblame
+      ]; # https://github.com/Arut0ria/nixos-desktop-config/blob/main/homeManagerModules/programs/vscode.nix for reference
+    };
   };
 
   programs.floorp = {
