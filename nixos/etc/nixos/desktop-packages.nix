@@ -10,14 +10,15 @@
     qpwgraph
     muse
     audacity
+    asunder
+    alsa-scarlett-gui
+    # Video Packages
     handbrake
     makemkv
     libdvdcss
     ccextractor
     mkvtoolnix
     subtitleedit
-    asunder
-    alsa-scarlett-gui
     #Internet
     slack
     zoom-us
@@ -25,6 +26,7 @@
     vencord
     filezilla
     qbittorrent
+    fladder
     #3dprinting
     orca-slicer
     #blender
