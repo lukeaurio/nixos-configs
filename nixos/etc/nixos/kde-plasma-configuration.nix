@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   services = {
     desktopManager.plasma6.enable = true;
 
@@ -20,7 +21,7 @@
     kdePackages.ksystemlog # KDE SystemLog Application
     kdePackages.sddm-kcm # Configuration module for SDDM
     kdePackages.krohnkite # Tiling window manager for KDE Plasma
-    kdePackages.kwallet #Needed for Storign credentials to NetworkManager
+    kdePackages.kwallet # Needed for Storign credentials to NetworkManager
     kdePackages.plasma-mobile # Plasma Mobile components
     kdePackages.plasma-keyboard # On-screen keyboard for Plasma
     kdePackages.qtvirtualkeyboard
@@ -33,7 +34,7 @@
     haruna # Open source video player built with Qt/QML and libmpv
     wayland-utils # Wayland utilities
     wl-clipboard # Command-line copy/paste utilities for Wayland
-    iio-sensor-proxy #allow for screen roation
+    iio-sensor-proxy # allow for screen roation
     brave
     libinput
   ];

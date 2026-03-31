@@ -230,6 +230,8 @@
     #vesktop.enable  = true;
   };
 
+  programs.lazyvim.enable = true;
+
   programs.vscode = {
     enable = true;
     #package = pkgs.vscodium;

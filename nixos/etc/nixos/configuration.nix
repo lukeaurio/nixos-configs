@@ -6,7 +6,8 @@
   pkgs,
   lib,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -35,7 +36,7 @@
   #firmware updater - Framework specific
   services.fwupd = {
     enable = true;
-    extraRemotes = ["lvfs-testing"];
+    extraRemotes = [ "lvfs-testing" ];
     # Might be necessary once to make the update succeed
     uefiCapsuleSettings.DisableCapsuleUpdateOnDisk = true;
   };
@@ -143,7 +144,12 @@
     isNormalUser = true;
     initialPassword = "ChangeMe!";
     description = "Willberto Dotbiz";
-    extraGroups = ["networkmanager" "wheel" "docker" "dialout"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "dialout"
+    ];
     shell = pkgs.zsh;
     packages = with pkgs; [
       #  thunderbird
@@ -191,7 +197,7 @@
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
-  networking.firewall.allowedUDPPorts = [41641];
+  networking.firewall.allowedUDPPorts = [ 41641 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
   #networking.trustedInterfaces = [ "tailscale0" ];

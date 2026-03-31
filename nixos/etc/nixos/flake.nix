@@ -9,9 +9,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nvf = {
-      url = "github:NotAShelf/nvf";
+    lazyvim = {
+      url = "github:pfassina/lazyvim-nix";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
     stylix = {
       url = "github:nix-community/stylix";
@@ -30,6 +31,7 @@
     self,
     nixpkgs,
     nix-vscode-extensions,
+    lazyvim,
     ...
   } @ inputs: let
     pkgs = sys:
@@ -45,7 +47,7 @@
       specialArgs = {inherit inputs;};
       modules = [
         {
-          nix.settings.experimental-features = ["nix-command" "flakes"];
+          nix.settings.experimental-features = ["nix-command" "flakes"]; 
           boot.initrd.kernelModules = ["pinctrl_tigerlake"];
           boot.kernelModules = ["sg"];
           nixpkgs.overlays = [
@@ -59,7 +61,6 @@
         ./stylix.nix
         inputs.home-manager.nixosModules.default
         inputs.home-manager.nixosModules.home-manager
-        inputs.nvf.nixosModules.default
 
         {
           home-manager.useGlobalPkgs = true;
@@ -68,6 +69,7 @@
           home-manager.users.willberto = import ./home-manager/home.nix;
           home-manager.sharedModules = [
             inputs.nixcord.homeModules.nixcord
+            inputs.lazyvim.homeManagerModules.default
           ];
         }
         inputs.stylix.nixosModules.stylix
