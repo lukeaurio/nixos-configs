@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "willberto";
@@ -106,7 +107,7 @@
       if [ "$VSCODE_INJECTION" = "1" ]; then
         export EDITOR="code --wait" # or 'code-insiders' if you're using VS Code Insiders
       fi
-    ''; #https://mynixos.com/home-manager/option/programs.zsh.initContent
+    ''; # https://mynixos.com/home-manager/option/programs.zsh.initContent
     oh-my-zsh = {
       # "ohMyZsh" without Home Manager
       enable = true;
@@ -129,7 +130,7 @@
   programs.keychain = {
     enable = true;
     #agents = [ "ssh" ];
-    keys = ["id_ed25519"];
+    keys = [ "id_ed25519" ];
     extraFlags = [
       "--quiet"
       "--ssh-allow-forwarded"
@@ -153,62 +154,64 @@
   programs.oh-my-posh = {
     enable = true;
     enableZshIntegration = true;
-    settings = builtins.fromJSON (builtins.unsafeDiscardStringContext ''
-      {
-        "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-        "blocks": [
-          {
-            "alignment": "left",
-            "segments": [
-              {
-                "background": "#18354c",
-                "foreground": "#ffc107",
-                "leading_diamond": "\ue0b6",
-                "properties": {
-                  "style": "fish",
-                  "full_length_dirs": 1,
-                  "dir_legth": 3
+    settings = builtins.fromJSON (
+      builtins.unsafeDiscardStringContext ''
+        {
+          "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+          "blocks": [
+            {
+              "alignment": "left",
+              "segments": [
+                {
+                  "background": "#18354c",
+                  "foreground": "#ffc107",
+                  "leading_diamond": "\ue0b6",
+                  "properties": {
+                    "style": "fish",
+                    "full_length_dirs": 1,
+                    "dir_legth": 3
+                  },
+                  "style": "diamond",
+                  "template": " \ue5ff {{ .Path }} ",
+                  "trailing_diamond": "\ue0b0",
+                  "type": "path"
                 },
-                "style": "diamond",
-                "template": " \ue5ff {{ .Path }} ",
-                "trailing_diamond": "\ue0b0",
-                "type": "path"
-              },
-              {
-                "background": "#18354c",
-                "foreground": "#ffc107",
-                "powerline_symbol": "\ue0b0",
-                "properties": {
-                  "fetch_upstream_icon": true
+                {
+                  "background": "#18354c",
+                  "foreground": "#ffc107",
+                  "powerline_symbol": "\ue0b0",
+                  "properties": {
+                    "fetch_upstream_icon": true
+                  },
+                  "style": "powerline",
+                  "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+                  "type": "git"
                 },
-                "style": "powerline",
-                "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
-                "type": "git"
-              },
-              {
-                "background": "#ffc107",
-                "foreground": "#18354c",
-                "powerline_symbol": "\ue0b0",
-                "style": "powerline",
-                "template": " \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} ",
-                "type": "python"
-              },
-              {
-                "background": "#ffc107",
-                "foreground": "#18354c",
-                "powerline_symbol": "\ue0b0",
-                "style": "powerline",
-                "template": " \uf0e7 ",
-                "type": "root"
-              }
-            ],
-            "type": "prompt"
-          }
-        ],
-        "final_space": true,
-        "version": 3
-      }
-    '');
+                {
+                  "background": "#ffc107",
+                  "foreground": "#18354c",
+                  "powerline_symbol": "\ue0b0",
+                  "style": "powerline",
+                  "template": " \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} ",
+                  "type": "python"
+                },
+                {
+                  "background": "#ffc107",
+                  "foreground": "#18354c",
+                  "powerline_symbol": "\ue0b0",
+                  "style": "powerline",
+                  "template": " \uf0e7 ",
+                  "type": "root"
+                }
+              ],
+              "type": "prompt"
+            }
+          ],
+          "final_space": true,
+          "version": 3
+        }
+      ''
+    );
   };
 
   programs.ghostty = {
@@ -230,7 +233,74 @@
     #vesktop.enable  = true;
   };
 
-  programs.lazyvim.enable = true;
+  programs.lazyvim = {
+    enable = true;
+    pluginSource = "nixpkgs";
+    ignoreBuildNotifications = true;
+    extras = {
+      ai.copilot.enable = true;
+
+      lang.docker.enable = true;
+      lang.go.enable = true;
+      lang.helm.enable = true;
+      lang.nix.enable = true;
+      lang.python.enable = true;
+      lang.terraform.enable = true;
+      lang.yaml.enable = true;
+
+      editor.fzf.enable = true;
+      editor.telescope.enable = true;
+
+      formatting.black.enable = true;
+    };
+
+    extraPackages = with pkgs; [
+      # LSP servers
+      nixd
+      pyright
+
+      # Formatters
+      black
+      alejandra
+
+      # Tools
+      ripgrep
+      fd
+    ];
+
+    plugins = {
+      everforest = ''
+        return {
+          {
+            "neanias/everforest-nvim",
+            version = false,
+            lazy = false,
+            priority = 1000,
+            config = function()
+              require("everforest").setup({
+                background = "hard",
+                transparent_background_level = 1,
+                italics = true,
+                disable_italic_comments = false,
+                sign_column_background = "none",
+                ui_contrast = "low",
+                dim_inactive_windows = false,
+                diagnostic_text_highlight = true,
+                diagnostic_virtual_text = "coloured",
+                spell_foreground = false,
+              })
+            end,
+          },
+          {
+            "LazyVim/LazyVim",
+            opts = {
+              colorscheme = "everforest";
+            },
+          }
+        }
+      '';
+    };
+  };
 
   programs.vscode = {
     enable = true;
@@ -287,7 +357,7 @@
           "Dark Modern"
         ];
       };
-      floorp.profileNames = ["default"];
+      floorp.profileNames = [ "default" ];
     };
   };
 }
