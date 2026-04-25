@@ -24,7 +24,7 @@ in
     go
     gopls
     hugo
-    nodePackages.nodejs
+    nodejs_25
     rustup
     rust-analyzer
     #tools
@@ -52,6 +52,7 @@ in
     jq
     yq
     nixfmt
+    ripgrep
     #tui locations
     ncspot
     jellyfin-tui

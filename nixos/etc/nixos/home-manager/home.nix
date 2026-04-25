@@ -129,7 +129,6 @@
 
   programs.keychain = {
     enable = true;
-    #agents = [ "ssh" ];
     keys = [ "id_ed25519" ];
     extraFlags = [
       "--quiet"
@@ -148,6 +147,18 @@
     settings = {
       user.email = "lukeaurio@proton.me";
       user.name = "Lukas Aurio";
+    };
+    lfs = {
+      enable = true;
+      skipSmudge = true;
+    };
+    settings = {
+      core = {
+        editor = "nvim";
+        longpaths = "true";
+      };
+      pull.rebase = "false";
+      push.autosetupremote = "true";
     };
   };
 
@@ -243,6 +254,7 @@
       lang.docker.enable = true;
       lang.go.enable = true;
       lang.helm.enable = true;
+      lang.markdown.enable = true;
       lang.nix.enable = true;
       lang.python.enable = true;
       lang.terraform.enable = true;
@@ -279,7 +291,7 @@
             config = function()
               require("everforest").setup({
                 background = "hard",
-                transparent_background_level = 1,
+                transparent_background_level = 0,
                 italics = true,
                 disable_italic_comments = false,
                 sign_column_background = "none",
@@ -342,7 +354,9 @@
       ]; # https://github.com/Arut0ria/nixos-desktop-config/blob/main/homeManagerModules/programs/vscode.nix for reference
     };
   };
-
+  programs.codex = {
+    enable = true;
+  };
   programs.floorp = {
     enable = false;
   };

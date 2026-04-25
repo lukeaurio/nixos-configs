@@ -27,7 +27,6 @@
     vencord
     filezilla
     qbittorrent
-    fladder
     #3dprinting
     orca-slicer
     #blender
