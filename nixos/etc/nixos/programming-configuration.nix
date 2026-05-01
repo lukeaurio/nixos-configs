@@ -33,6 +33,7 @@ in
     ffmpeg
     espflash
     rpi-imager
+    screen
     #command line tooling
     git-conventional-commits
     graphviz
