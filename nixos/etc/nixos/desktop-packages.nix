@@ -40,6 +40,7 @@
     libreoffice-qt
     hunspell
     hunspellDicts.en_US
+    ghostscript
     #programming
     #utils
     #rpi-imager
