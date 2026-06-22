@@ -326,7 +326,7 @@
         #python
         ms-python.python
         ms-python.vscode-pylance
-        #ms-python.pylint
+        ms-python.pylint
         ms-python.debugpy
         #go
         golang.go
@@ -356,6 +356,11 @@
   };
   programs.codex = {
     enable = true;
+    context = ''
+      - only use git commands when explicitly asked to
+      - never run infrastructure commands without confirmation (tofu or terraform apply)
+    '';
+
   };
   programs.floorp = {
     enable = false;

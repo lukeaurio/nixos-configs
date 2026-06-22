@@ -16,7 +16,7 @@ in
     #programming
     tailscale
     #languages / frameworks / runtimes
-    python313
+    python314
     poetry
     uv
     opentofu
@@ -64,7 +64,9 @@ in
     neovim
     tree-sitter
     #Cloud Platforms
-    gdk
+    #gdk
+    #agent stuff
+    skills
   ];
   services.tailscale.enable = true;
   programs.ssh.startAgent = true;
