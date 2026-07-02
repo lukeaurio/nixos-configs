@@ -24,6 +24,10 @@ reload() {
     echo "Reloaded ~/.zshrc"
 }
 
+gsp() {
+    git stash && git checkout "$1" && git pull origin "$1"
+}
+
 # Bash completion for dotgit
 if type _git &>/dev/null; then
   complete -o default -o nospace -F _git nixgit
