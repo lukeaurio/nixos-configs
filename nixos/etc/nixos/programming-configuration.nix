@@ -27,6 +27,11 @@ in
     nodejs
     rustup
     rust-analyzer
+    #ops
+    kubectl
+    kubernetes-helm
+    talosctl
+    talos-pilot
     #tools
     qFlipper
     ghostty
@@ -64,7 +69,7 @@ in
     neovim
     tree-sitter
     #Cloud Platforms
-    #gdk
+    gdk
     #agent stuff
     skills
   ];
