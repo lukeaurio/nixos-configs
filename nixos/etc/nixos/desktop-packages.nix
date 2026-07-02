@@ -23,8 +23,6 @@
     #Internet
     slack
     zoom-us
-    discord
-    vencord
     filezilla
     qbittorrent
     #3dprinting

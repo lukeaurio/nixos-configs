@@ -241,7 +241,10 @@
 
   programs.nixcord = {
     enable = true;
-    #vesktop.enable  = true;
+    discord = {
+      enable = true;
+      vencord.enable = true;
+    };
   };
 
   programs.lazyvim = {
