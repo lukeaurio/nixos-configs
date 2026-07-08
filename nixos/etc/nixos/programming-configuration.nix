@@ -44,7 +44,6 @@ in
     graphviz
     keychain
     tealdeer
-    lazygit
     lazydocker
     zoxide
     bat

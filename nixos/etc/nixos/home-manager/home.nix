@@ -142,6 +142,18 @@
     enableZshIntegration = true;
   };
 
+  programs.lazygit = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      gui = {
+        skipDiscardChangeWarning = true;
+      }
+    }
+
+
+  };
+
   programs.git = {
     enable = true;
     settings = {
@@ -362,6 +374,7 @@
     context = ''
       - only use git commands when explicitly asked to
       - never run infrastructure commands without confirmation (tofu or terraform apply)
+      - if building variables, always make sure to write input validation and error handling
     '';
 
   };
