@@ -148,10 +148,8 @@
     settings = {
       gui = {
         skipDiscardChangeWarning = true;
-      }
-    }
-
-
+      };
+    };
   };
 
   programs.git = {
