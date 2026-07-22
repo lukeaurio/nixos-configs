@@ -172,7 +172,6 @@
     htop
     btop
     git
-    fastfetch
     usbutils
     openssl
     nix-tree
