@@ -433,6 +433,23 @@
     profiles.default = {
       enableUpdateCheck = false;
       enableExtensionUpdateCheck = false;
+
+      userSettings = {
+        "git.autofetch" = true;
+        "git.mergeEditor" = true;
+        "editor.formatOnSave" = true;
+        "editor.formatOnPaste" = true;
+        "editor.minimap.enabled" = true;
+        "editor.stickyScroll.enabled" = true;
+        "extensions.autoUpdate" = false;
+        "update.mode" = "none";
+        "files.autoSave" = "onFocusChange";
+        "[markdown]" = {
+          "editor.quickSuggestions" = true;
+        };
+        "markdown.editor.pasteUrlAsFormattedLink.enabled" = "smart";
+        "markdown.validate.enabled" = true;
+      };
       extensions = with pkgs.vscode-marketplace-release; [
         bbenoist.nix
         #python

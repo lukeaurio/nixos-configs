@@ -30,6 +30,7 @@ in
     #ops
     kubectl
     kubernetes-helm
+    k9s
     talosctl
     talos-pilot
     #tools
