@@ -14,10 +14,10 @@
     asunder
     alsa-scarlett-gui
     # Video Packages
-    handbrake
+    #handbrake
     makemkv
     libdvdcss
-    ccextractor
+    #ccextractor
     mkvtoolnix
     subtitleedit
     #Internet

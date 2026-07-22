@@ -36,7 +36,7 @@ in
     #tools
     qFlipper
     ghostty
-    ffmpeg
+    #ffmpeg
     espflash
     rpi-imager
     screen
