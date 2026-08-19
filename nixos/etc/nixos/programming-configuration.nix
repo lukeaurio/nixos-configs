@@ -53,8 +53,8 @@ in
     fzf
     ripgrep
     fd
-    libgcc
-    gccNGPackages_15.libstdcxx
+    #libgcc
+    #gccNGPackages_15.libstdcxx
     jq
     yq
     nixfmt

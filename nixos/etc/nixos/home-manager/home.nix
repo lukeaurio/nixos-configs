@@ -120,7 +120,7 @@
         "poetry"
         "tailscale"
         "rust"
-        #"tmux"
+        "tmux"
       ];
       theme = "robbyrussell";
     };
@@ -170,6 +170,35 @@
       pull.rebase = "false";
       push.autosetupremote = "true";
     };
+  };
+
+  programs.yazi = {
+    enable = true;
+  };
+
+  # Configure tmux for terminal multiplexing
+  programs.tmux = {
+    enable = true;
+
+    extraConfig = ''
+      # Improve colors
+      set -g default-terminal "screen-256color"
+
+      # Set prefix to Ctrl-a
+      set -g prefix C-a
+      unbind C-b
+      bind C-a send-prefix
+
+      # Easy config reload
+      bind r source-file ~/.tmux.conf \; display-message "Config reloaded!"
+
+      # Mouse support
+      set -g mouse on
+
+      # Start windows and panes at 1, not 0
+      set -g base-index 1
+      setw -g pane-base-index 1
+    '';
   };
 
   programs.oh-my-posh = {
