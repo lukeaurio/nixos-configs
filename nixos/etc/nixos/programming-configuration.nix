@@ -36,11 +36,12 @@ in
     #tools
     qFlipper
     ghostty
-    #ffmpeg
+    ffmpeg
     espflash
     rpi-imager
     screen
     #command line tooling
+    abcde
     git-conventional-commits
     graphviz
     keychain
@@ -64,6 +65,7 @@ in
     ncspot
     jellyfin-tui
     reddit-tui
+    slackdump
     #vscode, editors and extensions
     platformio-core
     neovim
