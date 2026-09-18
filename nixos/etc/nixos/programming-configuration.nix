@@ -65,7 +65,6 @@ in
     ncspot
     jellyfin-tui
     reddit-tui
-    slackdump
     #vscode, editors and extensions
     platformio-core
     neovim

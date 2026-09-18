@@ -150,6 +150,7 @@
       "wheel"
       "docker"
       "dialout"
+      "scanner"
     ];
     shell = pkgs.zsh;
     packages = with pkgs; [
@@ -205,6 +206,8 @@
   ## Enable UDEV Rules
 
   hardware.flipperzero.enable = true;
+  hardware.sane.enable = true;
+  hardware.sane.extraBackends = [ pkgs.hplipWithPlugin ];
   hardware.sensor.iio.enable = true;
   services.udev.packages = [
     pkgs.platformio-core

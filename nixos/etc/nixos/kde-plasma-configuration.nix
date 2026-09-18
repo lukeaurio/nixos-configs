@@ -32,6 +32,7 @@
     kdePackages.partitionmanager # Optional Manage the disk devices, partitions and file systems on your computer
     hardinfo2 # System information and benchmarks for Linux systems
     kdePackages.k3b # CD/DVD burning application
+    kdePackages.skanpage
     gtk3
     haruna # Open source video player built with Qt/QML and libmpv
     wayland-utils # Wayland utilities
