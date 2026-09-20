@@ -17,8 +17,12 @@
         flags = [ "--no-update-lock-file" ];
       };
 
-      # No automatic GC during this experiment: preserve old system and Home
-      # Manager generations until a manual retention policy is chosen.
+      nix.gc = {
+        automatic = true;
+        dates = "weekly";
+        options = "--delete-older-than 7d";
+      };
+
       nix.settings = {
         auto-optimise-store = true;
         experimental-features = [
