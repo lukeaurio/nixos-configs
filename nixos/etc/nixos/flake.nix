@@ -1,8 +1,13 @@
 {
-  description = "Nixos config flake";
+  description = "Feature-oriented NixOS and Home Manager configuration";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -27,62 +32,9 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      nixpkgs,
-      nix-vscode-extensions,
-      lazyvim,
-      ...
-    }@inputs:
-    let
-      pkgs =
-        sys:
-        import nixpkgs {
-          system = sys;
-          overlays = [ inputs.nix-vscode-extensions.overlays.default ];
-          config = {
-            allowUnfree = true;
-          };
-        };
-    in
-    {
-      # use "nixos", or your hostname as the name of the configuration
-      # it's a better practice than "default" shown in the video
-      nixosConfigurations.framework-nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        modules = [
-          {
-            nix.settings.experimental-features = [
-              "nix-command"
-              "flakes"
-            ];
-            boot.initrd.kernelModules = [ "pinctrl_tigerlake" ];
-            boot.kernelModules = [ "sg" ];
-            nixpkgs.overlays = [
-              inputs.nix-vscode-extensions.overlays.default
-            ];
-          }
-          ./configuration.nix
-          ./programming-configuration.nix
-          ./kde-plasma-configuration.nix
-          ./desktop-packages.nix
-          ./stylix.nix
-          inputs.home-manager.nixosModules.default
-          inputs.home-manager.nixosModules.home-manager
-
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-            home-manager.users.willberto = import ./home-manager/home.nix;
-            home-manager.sharedModules = [
-              inputs.nixcord.homeModules.nixcord
-              inputs.lazyvim.homeManagerModules.default
-            ];
-          }
-          inputs.stylix.nixosModules.stylix
-        ];
-      };
+  outputs = inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      imports = [ ./modules ];
+      systems = [ "x86_64-linux" ];
     };
 }

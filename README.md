@@ -1,8 +1,9 @@
 # nixos-configs
 a place to store my nixos configurations for my computer(s).
 
-Uses a Bare repo and a symlinking strategy to track all of my nixconfigs (symlinks to be managed with home manager in future updates)
+Uses a Bare repo and a symlinking strategy to track all of my nixconfigs, you can find them in [the nixos folder](/nixos/etc/nixos). 
 
+Simply clone is repo to your home directory, and you'll be on your way to reproducing my nix configurations.
 ---
 
 ## Acknowledgements
