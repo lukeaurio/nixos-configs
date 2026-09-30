@@ -17,6 +17,10 @@
           hash = "sha256-Aooohj99uA9I5UMg52tHoe8UYe0+MophMDqei8TGJLg=";
         };
         polarity = "dark";
+        opacity = {
+          popups = 0.7;
+          terminal = 0.7;
+        };
         fonts = {
           monospace = {
             package = pkgs.nerd-fonts.hasklug;

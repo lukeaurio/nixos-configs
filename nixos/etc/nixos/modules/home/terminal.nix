@@ -43,7 +43,6 @@
       enable = true;
       enableZshIntegration = true;
       settings = {
-        background-opacity = "0.6";
         cursor-style = "block";
         term = "xterm-256color";
       };

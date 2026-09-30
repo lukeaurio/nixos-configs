@@ -7,8 +7,7 @@
     }:
     let
       googleCloudSdk = pkgs.google-cloud-sdk.withExtraComponents (
-        with pkgs.google-cloud-sdk.components;
-        [ gke-gcloud-auth-plugin ]
+        with pkgs.google-cloud-sdk.components; [ gke-gcloud-auth-plugin ]
       );
     in
     {
@@ -31,7 +30,6 @@
         talosctl
         talos-pilot
         qFlipper
-        ghostty
         ffmpeg
         espflash
         rpi-imager

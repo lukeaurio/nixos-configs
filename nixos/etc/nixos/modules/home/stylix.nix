@@ -11,6 +11,11 @@
             "Dark Modern"
           ];
         };
+        ghostty = {
+          opacity = {
+            enable = true;
+          };
+        };
         floorp.profileNames = [ "default" ];
       };
     };
