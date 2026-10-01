@@ -18,6 +18,7 @@
         ll = "ls -lah";
         lg = "lazygit";
         snv = "sudo nvim";
+        ff = "fastfetch";
         nixgit = "git --git-dir=$HOME/.nixos-config/ --work-tree=$HOME";
         lazynix = "lazygit --git-dir=$HOME/.nixos-config/ --work-tree=$HOME";
         rustdoc = "rustup doc --book";
@@ -73,6 +74,14 @@
         set -g base-index 1
         setw -g pane-base-index 1
       '';
+    };
+
+    programs.superfile = {
+      enable = true;
+      settings = {
+        editor = "nvim";
+        cd_on_quit = true;
+      };
     };
 
     programs.keychain = {
