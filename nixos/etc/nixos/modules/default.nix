@@ -9,6 +9,7 @@
     ./nixos/audio.nix
     ./nixos/peripherals.nix
     ./nixos/home-manager.nix
+    ./nixos/steam.nix
     ./nixos/stylix.nix
     ./nixos/vscode-marketplace.nix
     ./nixos/desktop/plasma.nix

@@ -34,6 +34,7 @@
         packages-base
         packages-desktop
         packages-development
+        steam
         vscode-marketplace
         stylix
         home-manager
