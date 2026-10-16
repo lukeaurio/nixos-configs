@@ -25,6 +25,9 @@
         nodejs
         rustup
         rust-analyzer
+        #Secrets
+        sops
+        secretspec
         #Devops / Kube
         kubectl
         kubernetes-helm
