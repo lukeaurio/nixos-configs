@@ -13,6 +13,7 @@
     {
       environment.systemPackages = with pkgs; [
         tailscale
+        #Development runtimes
         python314
         poetry
         uv
@@ -24,17 +25,23 @@
         nodejs
         rustup
         rust-analyzer
+        #Devops / Kube
         kubectl
         kubernetes-helm
         k9s
         talosctl
         talos-pilot
+        #HaxX0r tools
         qFlipper
+        #Video Editing
         ffmpeg
+        #Device Management
+        platformio-core
         espflash
         rpi-imager
         screen
         abcde
+        #TUI / CLI Tools
         git-conventional-commits
         graphviz
         keychain
@@ -54,10 +61,11 @@
         ncspot
         jellyfin-tui
         reddit-tui
-        platformio-core
         neovim
         tree-sitter
+        #Cloud Providers
         googleCloudSdk
+        #AI
         skills
       ];
     };
