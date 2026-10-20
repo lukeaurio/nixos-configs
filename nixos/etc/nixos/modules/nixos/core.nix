@@ -73,7 +73,7 @@
       nixpkgs.config = {
         allowUnfree = true;
         permittedInsecurePackages = [
-          "ventoy-1.1.17"
+          "ventoy-1.1.18"
           "libsoup-2.74.3"
         ];
       };

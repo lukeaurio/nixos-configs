@@ -16,6 +16,7 @@
     ./nixos/packages/base.nix
     ./nixos/packages/desktop.nix
     ./nixos/packages/development.nix
+    ./home/ai.nix
     ./home/identity.nix
     ./home/shell.nix
     ./home/terminal.nix

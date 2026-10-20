@@ -10,7 +10,7 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager"; # "github:lukeaurio/home-manager/feat/ptyxis/UpdatePaletteDefinitions";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

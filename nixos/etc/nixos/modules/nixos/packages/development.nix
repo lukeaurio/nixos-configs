@@ -36,8 +36,6 @@
         talos-pilot
         #HaxX0r tools
         qFlipper
-        #Video Editing
-        ffmpeg
         #Device Management
         platformio-core
         espflash
