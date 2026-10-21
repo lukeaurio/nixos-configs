@@ -1,6 +1,17 @@
 { ... }:
 {
   flake.modules.homeManager.ai = {
+    programs.mcp = {
+      enable = true;
+      servers = {
+        n8n = {
+          url = "http://192.168.1.74:5678/mcp-server/http";
+        };
+        home-assistant = {
+          url = "https://ha.lukeaurio.net/api/mcp";
+        };
+      };
+    };
     programs.opencode = {
       enable = true;
       enableMcpIntegration = true;
@@ -9,7 +20,6 @@
         autoupdate = true;
         plugin = [
           "opencode-skills"
-          "opencode-openai-codex-auth"
           ''\@tarquinen/opencode-dcp\@latest''
           "opencode-lmstudio"
         ];
@@ -26,6 +36,7 @@
     };
     programs.codex = {
       enable = true;
+      enableMcpIntegration = true;
       context = ''
         - only use git commands when explicitly asked to
         - never run infrastructure commands without confirmation (tofu or terraform apply)
