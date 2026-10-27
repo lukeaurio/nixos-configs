@@ -11,7 +11,6 @@
         pluginSource = "nixpkgs";
         ignoreBuildNotifications = true;
         extras = {
-          ai.copilot.enable = true;
           lang = {
             docker.enable = true;
             go.enable = true;
@@ -102,8 +101,7 @@
             rust-lang.rust-analyzer
             ms-vscode.cpptools
             ms-vscode.cpptools-extension-pack
-            openai.chatgpt
-            github.copilot-chat
+            sst-dev.opencode
             github.vscode-github-actions
             mhutchie.git-graph
             waderyan.gitblame
