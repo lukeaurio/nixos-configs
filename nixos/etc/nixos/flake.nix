@@ -3,7 +3,14 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
+    caveman = {
+      url = "github:JuliusBrussee/caveman";
+      flake = false;
+    };
+    drawio-mcp = {
+      url = "github:jgraph/drawio-mcp";
+      flake = false;
+    };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
