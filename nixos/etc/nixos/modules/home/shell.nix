@@ -27,6 +27,8 @@
         cat = "bat";
         nixclean = "nix-env --delete-generations 10d && nix-store --gc";
         flakeup = "sudo nix flake update && sudo nixos-rebuild switch";
+        tailup = "sudo tailscale up --accept-dns --accept-routes";
+        taildown = "sudo tailscale down";
       };
       initContent = ''
         source $HOME/shell_scripts/zsh_start.sh
