@@ -35,6 +35,7 @@
           alejandra
           ripgrep
           fd
+          statix
         ];
         plugins.everforest = ''
           return {
