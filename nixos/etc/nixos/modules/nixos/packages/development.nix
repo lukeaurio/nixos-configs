@@ -42,6 +42,7 @@
         rpi-imager
         screen
         abcde
+        android-tools
         #TUI / CLI Tools
         git-conventional-commits
         graphviz
