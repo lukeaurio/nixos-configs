@@ -68,6 +68,7 @@
             "@tarquinen/opencode-dcp@latest"
             "@dietrichgebert/ponytail"
             "${inputs.caveman}/src/plugins/opencode"
+            "opencode-antigravity-auth@latest"
           ];
           #  "provider": {
           # "lmstudio": {
