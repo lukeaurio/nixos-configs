@@ -4,6 +4,7 @@
   flake.modules.homeManager.willberto = {
     imports = with config.flake.modules.homeManager; [
       ai
+      browser
       identity
       shell
       terminal

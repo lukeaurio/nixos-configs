@@ -35,7 +35,6 @@
         wayland-utils
         wl-clipboard
         iio-sensor-proxy
-        brave
         libinput
       ];
     };

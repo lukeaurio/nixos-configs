@@ -32,6 +32,7 @@
         peripherals
         plasma
         packages-base
+        #packages-citrix
         packages-desktop
         packages-development
         steam

@@ -14,9 +14,11 @@
     ./nixos/vscode-marketplace.nix
     ./nixos/desktop/plasma.nix
     ./nixos/packages/base.nix
+    ./nixos/packages/citrix.nix
     ./nixos/packages/desktop.nix
     ./nixos/packages/development.nix
     ./home/ai.nix
+    ./home/browser.nix
     ./home/identity.nix
     ./home/shell.nix
     ./home/terminal.nix
