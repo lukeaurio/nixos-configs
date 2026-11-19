@@ -4,6 +4,10 @@
     stylix = {
       enable = true;
       targets = {
+        neovim = {
+          enable = true;
+          plugin = "mini.base16";
+        };
         vscode = {
           enable = true;
           profileNames = [

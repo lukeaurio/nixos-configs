@@ -9,7 +9,7 @@
       programs.lazyvim = {
         enable = true;
         pluginSource = "nixpkgs";
-        ignoreBuildNotifications = true;
+        ignoreBuildNotifications = false;
         extras = {
           lang = {
             docker.enable = true;
@@ -22,7 +22,6 @@
             yaml.enable = true;
           };
           editor = {
-            fzf.enable = true;
             telescope.enable = true;
           };
           formatting.black.enable = true;
@@ -32,36 +31,65 @@
           pyright
           black
           alejandra
-          ripgrep
-          fd
           statix
+          lua-language-server
+          stylua
+          gopls
+          gofumpt
+          gotools
+          golangci-lint
+          ruff
+          helm-ls
+          terraform-ls
+          yaml-language-server
+          marksman
+          markdownlint-cli2
+          markdown-toc
+          prettier
+          dockerfile-language-server
+          docker-compose-language-service
+          hadolint
         ];
-        plugins.everforest = ''
+        plugins.trouble = ''
+          return {
+            -- shortcut: eager-load Trouble until lazyvim-nix PR #119 fixes dev-path module loading.
+            { "folke/trouble.nvim", lazy = false },
+          }
+        '';
+        plugins.nix-tools = ''
           return {
             {
-              "neanias/everforest-nvim",
-              version = false,
-              lazy = false,
-              priority = 1000,
-              config = function()
-                require("everforest").setup({
-                  background = "hard",
-                  transparent_background_level = 0,
-                  italics = true,
-                  disable_italic_comments = false,
-                  sign_column_background = "none",
-                  ui_contrast = "low",
-                  dim_inactive_windows = false,
-                  diagnostic_text_highlight = true,
-                  diagnostic_virtual_text = "coloured",
-                  spell_foreground = false,
-                })
-              end,
+              "neovim/nvim-lspconfig",
+              opts = {
+                servers = {
+                  nil_ls = { enabled = false },
+                  nixd = {
+                    settings = {
+                      nixd = {
+                        formatting = { command = { "alejandra" } },
+                      },
+                    },
+                  },
+                },
+              },
             },
             {
+              "stevearc/conform.nvim",
+              opts = function(_, opts)
+                opts.formatters_by_ft.nix = { "alejandra" }
+              end,
+            },
+          }
+        '';
+        plugins.stylix = ''
+          return {
+            {
               "LazyVim/LazyVim",
-              opts = { colorscheme = "everforest"; },
-            }
+              opts = {
+                -- Stylix applies mini.base16 before LazyVim starts; keep that theme.
+                colorscheme = function() end,
+              },
+            },
           }
         '';
       };
