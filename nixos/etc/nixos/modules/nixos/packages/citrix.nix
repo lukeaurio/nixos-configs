@@ -16,7 +16,8 @@
       );
     in
     {
-      environment.systemPackages = [ citrix ];
+      # Email-based store discovery calls dig.
+      environment.systemPackages = [ citrix pkgs.dig ];
       systemd.packages = [ citrix ];
       systemd.user.services.ctxcwalogd.wantedBy = [ "default.target" ];
     };
