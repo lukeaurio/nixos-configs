@@ -36,7 +36,13 @@
             sha256 = "sha256:178ask6mgrvzr381hby1ifvfd38h1ym5bdrb56sflfpxjap5fy0b";
             version = "4.9.135";
           })
-        ];        
+          (createChromiumExtension {
+            # PrivacyBadger
+            id = "pkehgijcmpdhfbdbbnkijodmdjhbjlgp";
+            sha256 = "sha256:19v92qj015acmdj77krglfr0kkd0880kj5h1b5hphfy14fy076cb";
+            version = "2026.9.15.2";
+          })
+        ];
     };
   };
 }
