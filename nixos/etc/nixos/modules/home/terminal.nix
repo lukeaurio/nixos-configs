@@ -1,7 +1,7 @@
 { ... }:
 {
   flake.modules.homeManager.terminal =
-    { config, ... }:
+    { config, pkgs, ... }:
     let
       colors = config.lib.stylix.colors.withHashtag;
     in
@@ -9,15 +9,80 @@
       programs = {
         tmux = {
           enable = true;
+          terminal = "tmux-256color";
+          prefix = "C-a";
+          baseIndex = 1;
+          mouse = true;
+          keyMode = "vi";
+          customPaneNavigationAndResize = true;
+          focusEvents = true;
+          historyLimit = 50000;
+          plugins = [
+            pkgs.tmuxPlugins.resurrect
+            {
+              plugin = pkgs.tmuxPlugins.continuum;
+              extraConfig = ''
+                set -g @continuum-save-interval 15
+                set -g @continuum-restore on
+
+                # Keep Stylix colours; show a reminder instead of adding a theme plugin.
+                # Home Manager loads this before Continuum, preserving its autosave hook.
+                set -g status-left-length 20
+                set -g status-left " #S "
+                set -g status-right-length 55
+                set -g status-right "#{?client_prefix,PREFIX | ,}Ctrl-a ? help | %H:%M "
+              '';
+            }
+          ];
           extraConfig = ''
-            set -g default-terminal "screen-256color"
-            set -g prefix C-a
-            unbind C-b
-            bind C-a send-prefix
-            bind r source-file ~/.tmux.conf \; display-message "Config reloaded!"
-            set -g mouse on
-            set -g base-index 1
-            setw -g pane-base-index 1
+            # BEGINNER GUIDE
+            # A session holds windows (tabs); each window holds panes (split terminals).
+            # Start or reconnect: tmux new -As work. List sessions: tmux ls.
+            # Press Ctrl-a, RELEASE both keys, then press a command below.
+            # Ctrl-b also works, so standard tmux tutorials still apply.
+            #   ?          Show key bindings; q closes help.
+            #   c          New window in this directory; , renames the window.
+            #   n / p      Next / previous window; 1..9 selects its number.
+            #   | / -      Split side by side / top and bottom.
+            #   Arrow keys Move between panes; h/j/k/l also work.
+            #   H/J/K/L    Resize panes; z toggles zoom; Space cycles layouts.
+            #   w / s      Choose a window / session from a list.
+            #   d          Detach safely; commands keep running until shutdown.
+            #   x          Close a pane after confirmation; this stops its programs.
+            #   [          Scroll/copy mode: arrows move, v selects, y copies.
+            #   Escape / q Leave copy mode; ] pastes the copied text inside tmux.
+            #   Ctrl-s     Save the session layout now; Ctrl-r restores the last snapshot.
+            # Mouse: click panes/windows, drag borders to resize, scroll for history.
+            # Clipboard sync also works when the outer terminal supports OSC 52.
+            # Ctrl-a Ctrl-a sends a literal Ctrl-a to the program inside tmux.
+            # Edit this Nix module, rebuild, then Ctrl-a r reloads the generated config.
+            # Layouts autosave every 15 minutes and restore when a new tmux server starts.
+            # Running jobs and unsaved editor changes do not survive a reboot.
+            #
+            # Ideas: https://github.com/gpakosz/.tmux
+            # https://github.com/tmux-plugins/tmux-sensible
+            # https://github.com/thoughtbot/dotfiles/blob/main/tmux.conf
+
+            set -g prefix2 C-b
+            bind -N "Send Ctrl-b through to the application" C-b send-prefix -2
+            set -g renumber-windows on
+            set -g display-time 4000
+            set -g display-panes-time 2000
+            set -g status-keys emacs
+            set -g set-clipboard external
+            # Ghostty is configured below to identify itself as xterm-256color.
+            set -as terminal-features ",xterm-256color:RGB"
+
+            bind -N "New window in the current directory" c new-window -c "#{pane_current_path}"
+            bind -N "Split side by side in the current directory" | split-window -h -c "#{pane_current_path}"
+            bind -N "Split top and bottom in the current directory" - split-window -v -c "#{pane_current_path}"
+            bind -N "Split side by side in the current directory" % split-window -h -c "#{pane_current_path}"
+            bind -N "Split top and bottom in the current directory" '"' split-window -v -c "#{pane_current_path}"
+            bind -N "Reload the Home Manager tmux configuration" r source-file "${config.xdg.configHome}/tmux/tmux.conf" \; display-message "Config reloaded!"
+            bind -T copy-mode-vi v send-keys -X begin-selection
+            bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+            bind -T copy-mode-vi Escape send-keys -X cancel
+
           '';
         };
 
