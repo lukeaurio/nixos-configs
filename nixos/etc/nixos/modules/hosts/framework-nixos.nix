@@ -13,11 +13,18 @@
       # This is the machine-specific hardware exception to the pattern.
       imports = [ ../../hardware-configuration.nix ];
 
-      boot.initrd.kernelModules = [ "pinctrl_tigerlake" ];
-      boot.kernelModules = [ "sg" ];
-      boot.loader.systemd-boot.enable = true;
-      boot.loader.efi.canTouchEfiVariables = true;
-      boot.kernelPackages = pkgs.linuxPackages_latest;
+      boot = {
+        initrd.kernelModules = [ "pinctrl_tigerlake" ];
+        kernelModules = [ "sg" ];
+        loader = {
+          systemd-boot = {
+            enable = true;
+            configurationLimit = 7;
+          };
+          efi.canTouchEfiVariables = true; 
+        };
+        kernelPackages = pkgs.linuxPackages_latest;
+      };
       networking.hostName = "framework-nixos";
     };
 
@@ -32,7 +39,7 @@
         peripherals
         plasma
         packages-base
-        #packages-citrix
+        packages-citrix
         packages-desktop
         packages-development
         steam
