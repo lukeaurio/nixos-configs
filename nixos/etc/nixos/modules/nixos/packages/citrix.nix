@@ -16,6 +16,8 @@
       );
     in
     {
+      # Use Workspace from Plasma Wayland; Nixpkgs handles Xwayland for the client.
+      # Use the IT-provided store URL and NOT the email associated with your work account
       # Email-based store discovery calls dig.
       environment.systemPackages = [ citrix pkgs.dig ];
       systemd.packages = [ citrix ];
