@@ -7,6 +7,9 @@
         neovim = {
           enable = true;
           plugin = "mini.base16";
+          transparentBackground = {
+            main = true;
+          };
         };
         vscode = {
           enable = true;

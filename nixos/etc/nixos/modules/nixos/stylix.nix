@@ -30,7 +30,6 @@
           sansSerif = config.stylix.fonts.monospace;
           emoji = config.stylix.fonts.monospace;
         };
-        targets.nvf.transparentBackground = true;
       };
     };
 }
